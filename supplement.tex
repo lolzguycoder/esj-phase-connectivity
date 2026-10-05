@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,fancyhdr}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Single-band delay--preference non-identifiability}\fancyhead[R]{\small Supplement}\fancyfoot[C]{\thepage}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\title{Supplementary methods and secondary checks\\\large Single-band delay--preference non-identifiability}
+\author{Karem Abdelgalil}\date{4 October 2026}
+\begin{document}\maketitle
+\section{Reproduction and implemented scope}
+Run \texttt{python simulate.py}, \texttt{python verify.py}, and \texttt{python build\_results.py} in the source folder. All numerical observations are synthetic. Complete scripts are supplied as separate files; their source is not duplicated as manuscript pages. Figure files numbered 1--4 below are secondary checks; files 5--7 appear as Figures 2, 3, and 1, respectively, in the main text. Generated \texttt{results\_macros.tex} is the numerical source used by the manuscript. Detailed per-realization values and intervals are in \texttt{results.json}. Exact dependency versions from the execution environment are in \texttt{environment.txt}. Settings are not a human sample-size recommendation.
+
+\section{Independent marker channels}
+Let $s$ be externally known stimulus time and let $a,b,c$ be independently measured arrival, ignition-like, and output markers. Their stipulated means are $a=s+\tau$, $b=a+\tau_{\rm pre}$, $c=b+\tau_{\rm post}$. The observation vector $(\eta,a-s,b-s,c-s)$ has Jacobian
+\[
+J=\begin{pmatrix}1&\Omega&0&0\\0&1&0&0\\0&1&1&0\\0&1&1&1\end{pmatrix}
+\]
+in coordinates $(\alpha,\tau,\tau_{\rm pre},\tau_{\rm post})$, with determinant one. In coordinates $(\eta,\tau,\tau_{\rm pre},\tau_{\rm post})$ the first row becomes $(1,0,0,0)$. Independent rank does not validate a physiological marker. Shared marker errors induce correlated interval errors; without $a$, $b-s$ mixes travel and pre-marker processing. Intervals are not durations of conscious experience.
+
+Synthetic logistic channels have onset means 12, 21, and 26 ms, transition scale 1 ms, and independent Gaussian noise SD 0.025. Onsets are estimated by squared-error search on a 0.25-ms grid over 0--40 ms. Figure S2 is a single consistency/recovery illustration; it is not repeated-sampling coverage or a neural latency estimate.
+
+\section{Ordering centroids and finite-frequency failure}
+Let token times $t_k$ be permuted by $\sigma$ and nonnegative calibrated weights $q_k$ sum to one. Define
+\[
+\tau_{\rm ord}=\sum_kq_k(t_{\sigma(k)}-t_k),\quad
+F_\sigma(\omega)=\sum_kq_ke^{-i\omega t_{\sigma(k)}}.
+\]
+Since $F_\sigma(0)=1$, the derivative of $\arg(F_\sigma/F_{\rm id})$ at zero is $-\tau_{\rm ord}$. Uniform weights give zero for every permutation of the same slots. At finite frequency, wrapping, zeros, and higher moments invalidate interpretation as a constant delay. Figure S3 uses 12 slots 20 ms apart and weights proportional to 1--12. This mathematical timing statistic is neither a semantic dictionary nor a separately identified conduction latency. It is excluded from the primary confirmatory claim.
+
+\section{Serial transfer and kernel directions}
+For a single acyclic path with no extra inputs and no processing kernels, write $x_k(t)=r_k(t)T_kx_{k-1}(t-\tau_k)$. Let $d_k=\sum_{j=k+1}^{m}\tau_j$. Repeated substitution gives
+\[
+x_m(t)=\left[\prod_{k=1}^{m}r_k(t-d_k)\right]
+(T_mT_{m-1}\cdots T_1)x_0\left(t-\sum_{k=1}^{m}\tau_k\right).
+\]
+Matrices preserve path order; gates use retarded times. A feature annihilated along this path remains absent. Additional inputs and bypasses invalidate that isolation assumption. With processing kernels and constant gains, path composition adds convolution of the kernels; time-varying gates generally prevent replacing the process by a single constant latency.
+
+\section{Conditional sensitivity and the stipulated learning split}
+The noise-location curves in Figure S4 implement the main text's Gaussian class means $\pm rhC/2$. With positive downstream noise, sensitivity rises with gain. Pure upstream noise gives a constant for positive gain and becomes degenerate at exactly zero gain. The derivative of a saturated readout has mixed term
+\[
+\frac{\partial^2\tanh(wrC)}{\partial r\partial C}
+=w\,\operatorname{sech}^2(z)[1-2z\tanh z],\quad z=wrC.
+\]
+The sign changes near 0.772, so positive interaction is not an unconditional prediction.
+
+For the learning rule, $u=1$, target $v=0.8$, initial trace zero, step size 0.1, and open learning/gain give trace $0.8(1-0.9^5)$ after five updates. The closed learning flag leaves the trace exactly zero. Access is $0.8g(\Delta)$, giving 0.8 at zero error and approximately 0.01465 at $\pi$. These values are computed from the update rule, not inserted as fitted outcomes. The split is imposed by architecture.
+
+\section{Primary simulation settings and uncertainty}
+The scalar interaction experiment uses 60 realizations of 500 training and 500 test trials, exact observed features, and independent Gaussian noise. Conditional normal-approximation intervals use OLS residual variance with $n-p$ degrees of freedom. Empirical coverage is reported, not asserted equal to nominal coverage; 60 realizations provide a limited Monte Carlo estimate. These intervals do not propagate dictionary, phase, or decoder uncertainty. The quadratic model contains the bilinear model, intentionally demonstrating predictive nonuniqueness.
+
+The temporal experiment has one 900-sample realization with a 30-sample burn-in; 500/150/220 consecutive samples are used for training/validation/test. Gains and content span each segment. Lag selection uses only validation responses. Past inputs needed to predict a test outcome are available, but no test response contributes to fitting. Known maps and kernels are supplied. Temporal excitation is required; a constant signal cannot identify its delay.
+
+The sensor experiment uses 24 realizations, matched observation-noise streams across seven ablations, 80 training and 80 independent test trials, and a fixed six-harmonic Fourier comparator. Gate offsets are searched on 49 points over $[-\pi,\pi]$, concentration on 32 points over $[0.25,8]$, and nonnegative gain is optimized analytically for each template. Concentration is grid limited, not an unbiased estimator. Fourier regression has 13 coefficients. The 16-Hz harmonic is exactly rejected by the 6--10 Hz filter for the specified stationary periodic waveforms. The two-cycle alternative generator is an output-transfer function, distinct from adding a 16-Hz recording component. Model wins are predictive comparisons, not calibrated hypothesis-test decisions.
+
+\begin{figure}[htbp]\centering\includegraphics[width=.84\linewidth]{figure1.pdf}\caption{Secondary consistency checks: phase gate, parameter ridge, translation error versus gain, and detuning. Negative delays in the ridge display are an algebraic extension; only nonnegative admissible delays enter the physiological model.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.84\linewidth]{figure2.pdf}\caption{Stipulated independent logistic marker channels and their observation rank. Singular values use the displayed units; their magnitudes are not unit-invariant conditioning measures.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.84\linewidth]{figure3.pdf}\caption{Ordering centroid equals the near-zero spectral slope; a finite-frequency phase-derived shift can disagree.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.84\linewidth]{figure4.pdf}\caption{Conditional sensitivity, saturation, retarded serial gain, and the architecture-imposed access--trace split.}\end{figure}
+\section{Main-text simulation plots}
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure7.pdf}\caption{Delayed dictionary translation, factorial contrast, held-out prediction, and test fit.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure5.pdf}\caption{Restricted interaction recovery. Panel D shows the first 15 of 60 realizations.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure6.pdf}\caption{Matched observation ablations and the two-cycle alternative generator.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure8.pdf}\caption{Constructive escapes. Two frequencies and a chirp recover delay. The single-band panel is constant along the ridge.}\end{figure}
+\section{Reproduction of the observation model}\label{sec:repro}
+Run \texttt{python reproduce.py} in the source folder. It checks four identities and writes \texttt{reproduction\_checks.json}.
+
+The transferred cross-spectrum has phase $-(\alpha+\Omega\tau)$. Shifts that preserve this sum leave the phase unchanged to numerical precision. The simultaneous oscillator contrast is a constant in that script and does not contain $\alpha$ or $\tau$. That is why a phase-locking score on the raw contrast does not establish the title claim.
+
+On the rank-one map, kernel amplitude is identically zero and the image crosses $0.25$ exactly when the gate does. A moving offset of slope $-1.6$ rad/s first clears $0.5$ rad at $0.562$~s. A 40~ms pulse puts the mixed-term peak at 50~ms, and a closed unreported gate returns that amplitude to zero.
+
+The exact-feature coupling intervals covered in 52 of 60 runs (86.7 percent). The nominal 95 percent level is not a claim that the interval formula is mis-specified. Feature noise of SD 0.15 drops coverage to 0 percent. Both numbers are regenerated by \texttt{simulate.py} and checked by \texttt{verify.py}. No public deposit DOI is claimed; the scripts are in this archive.
+\end{document}

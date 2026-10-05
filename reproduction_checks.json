@@ -1,0 +1,13 @@
+{
+  "cross_spectrum_phase": -1.3047786842338605,
+  "ridge_unique": true,
+  "simultaneous_contrast_independent_of_eta": 0.3,
+  "image_crosses_with_gate": true,
+  "kernel_always_zero": true,
+  "hitting_time_s": 0.5625,
+  "mixed_peak_s": 0.05,
+  "closed_gate_mixed_max": 0.0,
+  "exact_feature_coverage": 0.867,
+  "coverage_note": "52 of 60 exact-feature intervals covered; shortfall is finite-run, not a second parameter.",
+  "noisy_feature_coverage": 0.0
+}

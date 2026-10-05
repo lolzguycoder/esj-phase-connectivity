@@ -1,0 +1,6 @@
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+NumPy 2.3.5
+Matplotlib 3.10.8
+Backend: Agg
+Seeds: 2026, 9200+run, 19300+run, 4026; verification seed 19
+TeX: system pdfLaTeX and BibTeX

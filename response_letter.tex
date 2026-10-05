@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\setlist{itemsep=0.35em,topsep=0.4em}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\title{Response to reviewers\\[0.3em]\large Single-Band Phase-Difference Connectivity Cannot Separately Identify Conduction Delay and Receiver Phase Preference}
+\author{Karem Abdelgalil}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+
+This letter answers the comments on the PsyArXiv draft. Section numbers refer to the revised ENOSH manuscript. Where a claim in an earlier letter was stronger than the manuscript, the letter is corrected here. The code is in the review archive. A public DOI is not yet claimed.
+
+\section*{Reviewer 1}
+
+\subsection*{Major 1. Appendix B and Test 6}
+Removed. The exploratory idea-network and creativity program is omitted from the abstract, the discussion, and the supplement. The delayed-pathway material that remains is the finite-memory interaction used by the factorial contrast, not a separate theory. Section 5 says so.
+
+\subsection*{Major 2. Code}
+\texttt{simulate.py}, \texttt{verify.py}, \texttt{requirements.txt}, the figure files, and \texttt{results.json} are in the review archive named in the Transparency section. A permanent public deposit is still pending. The manuscript does not claim a public URL or DOI.
+
+\subsection*{Major 3. Letter does not match the manuscript}
+Corrected. This letter does not say that the model uniquely distinguishes itself from other theories, and it does not say that parameters are recovered accurately in general. The manuscript says the opposite where that is the result: exact-feature coupling coverage is 86.7 percent in a finite run, noisy features drop coverage to 0 percent, and source mixing moves fitted concentration from about 1.96 to about 4.83. Those numbers are in Table 5 and Section 6.
+
+\subsection*{Minor 1. Old title in the header and Section 1}
+The title, short title, and Section 1 now use the restricted title. The old phrase ``Delay-corrected routing, access, and trace'' is gone.
+
+\subsection*{Minor 2. ``Nonconscious''}
+Replaced by ``unreported processing.'' The words subconscious and conscious, where they appear, are defined as report statuses, not measured experiences (Section 4).
+
+\subsection*{Minor 3. Sentences addressed to reviewers}
+Removed from the manuscript. The code statement and the correction of the earlier unconditional claim are in this letter.
+
+\subsection*{Minor 4. Abstract and the three-way dissociation}
+The abstract no longer says the simulation exhibits a three-way dissociation as a finding. It says the access--trace split is built into the learning rule.
+
+\section*{Reviewer 2}
+
+\subsection*{Major 1. Title broader than the result}
+The title is now the restriction you suggested: single-band phase-difference connectivity cannot separately identify conduction delay and receiver phase preference. The abstract, the opening, and the discussion repeat the stationary single-band scope and name the escapes: a second frequency, an independent latency, and a non-constant sender trajectory.
+
+\subsection*{Major 2. Identifiability is not causal identification}
+Section 1 separates structural identifiability, observational equivalence, predictive association, mechanistic identification, and causal identification. The claim is now that a single-band phase-difference score cannot uniquely separate \(\alpha\) from \(\tau\). It is not that every observational test of gating is impossible.
+
+\subsection*{Major 3. Gauge orbit}
+The gauge wording is dropped. The object is called a parameter ridge, the standard reparameterization \((\alpha,\tau)\mapsto(\alpha+\Omega u,\tau-u)\). No extra mathematical consequence is claimed beyond that ridge. Eisenberg and Hayashi (2014) are cited for the classical status of the algebra.
+
+\subsection*{Major 4. Arrival-phase intervention is not the only design}
+The exclusivity sentence is removed. Section 3.2 calls the intervention one gate-testing strategy. Independent latencies, a second frequency, and a chirp are stated as other escapes. Figure 1 shows the two-frequency and chirp recoveries and the single-band ridge.
+
+\subsection*{Major 5. Classify the simulations}
+Table 4 separates consistency checks, parameter recovery, robustness, restricted generator comparison, and analyses that are proposed but not run. The four-population phase-reset story is not offered as validation. Secondary marker, ordering, and serial-path checks are in the supplement. The main simulation graphs are Figures 1--5.
+
+\subsection*{Major 6. Source mixing}
+Section 6 and Figure 4 put the practical failure next to the structural result. Clean 10 dB concentration is about 1.96. Mixing plus common drive at 0 dB moves it to about 4.83. The harmonic-alone cell matches the filtered clean cell. The discussion separates structural identifiability under the model from practical identifiability in electrophysiology.
+
+\subsection*{Major 7. Anti-circularity}
+Section 7 states four non-overlapping stages: localize \(A\), freeze decoders and maps, fit on a separate stage, test on untouched data. Relocalization from confirmatory outcomes is forbidden. Thresholds stay illustrative until a pilot freezes them.
+
+\subsection*{Major 8. Implemented versus proposed}
+Only the scalar sensitivity derivation is implemented. The joint behavioral likelihood with decoder error and confidence is labeled future work. Table 4 marks the behavioral model, the localization protocol, and the biological intervention as proposed, not run.
+
+\subsection*{Major 9. Synthetic power}
+No participant-level power analysis and no sample-size recommendation are reported. Section 4.3 says a real calculation needs calibrated phase separation, participant variance, decoder reliability, attrition, multiplicity, and a minimum effect of interest.
+
+\subsection*{Major 10. Narrow the paper}
+The idea-network program is removed. The remaining line is the ridge, the delivery trade-off, the delayed-posting theorem, the content-by-routing prediction, and the rejection rules.
+
+\subsection*{Minor comments}
+Terminology is fixed in Table 3: phase-lag consistency is not proximity to a receptive phase. Table 2 defines \(\alpha,\tau,\eta,\Delta,g,r,R\), the maps, and the edge set \(\mathrm{E}_A\). Pairwise phase consistency on correlated samples is not treated as extra replication. Conduction delay and filter phase are separate; the kernel phase is absorbed into \(\alpha\). Equivalence thresholds are illustrative. Repeated caveats are collected in the Assumptions and limits subsection of Section 1.
+
+\section*{What this version does not claim}
+No human or animal result. No proof that phase gating is the biological mechanism. No public dataset test: the archives inspected lack a calibrated translation map and an arrival-phase intervention. Failure to report is not evidence that experience was absent.
+\end{document}
