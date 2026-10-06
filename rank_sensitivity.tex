@@ -1,0 +1,28 @@
+\paragraph{From added rank to measurable sensitivity.} Proposition~\ref{prop:innovation} identifies available receiver directions, not their behavioral use. The following readout model supplies the missing link. It connects the projected factorial contrast to discriminability, and specifies when added rank is behaviorally silent.
+
+\begin{corollary}[Interaction innovation and Gaussian discriminability]\label{cor:rank-sensitivity}
+Let the additive space $S$ and product matrix $C_B$ be those of Proposition~\ref{prop:innovation}. At a frozen analysis time, assume a receiver decision vector
+\[
+Y\mid s\sim N(s\mu/2,\Sigma),\quad s\in\{-1,1\},\qquad
+\mu=\mu_S+\lambda b,
+\]
+where $\mu_S\in S$ is the additive class-mean contrast, $b\in\im C_B$ is a class-dependent bilinear contrast, $\Sigma$ is a fixed positive-definite noise covariance, and $\lambda=\chi a_1a_2$ for calibrated nonnegative pathway gains $a_1,a_2$. Write $W=\Sigma^{-1/2}$, and let $Q_\Sigma$ project orthogonally onto $(WS)^\perp$ in noise-whitened coordinates. The optimal linear discriminability in the innovation subspace is
+\begin{equation}
+d'_{\rm new}=|\lambda|\|Q_\Sigma Wb\|.\label{eq:innovation-sensitivity}
+\end{equation}
+The dimension of available noise-whitened innovation is $\rank(Q_\Sigma WC_B)=d_B$. Thus $d_B>0$ permits a positive interaction-only sensitivity for some class-dependent basis contrast, but does not guarantee it for a particular task or readout. Full optimal discriminability satisfies
+\[
+(d'_{\rm opt})^2=\|(I-Q_\Sigma)W\mu\|^2
++\lambda^2\|Q_\Sigma Wb\|^2.
+\]
+For fixed nonzero $Q_\Sigma Wb$, increasing $|\lambda|$ increases innovation-only discriminability. This conclusion requires fixed covariance and a decision rule that reads that subspace.
+\end{corollary}
+\begin{proof}
+Whitening gives $WY\mid s\sim N(sW\mu/2,I)$. Projection removes the additive contrast, because $Q_\Sigma W\mu_S=0$. In an orthonormal basis of the range of $Q_\Sigma$, the projected noise covariance is identity and its class-mean difference is $\lambda Q_\Sigma Wb$. For a linear readout vector $w$ in that range, discriminability is $|w^\top\lambda Q_\Sigma Wb|/\|w\|$. Cauchy--Schwarz bounds this by the norm of the mean difference, with equality for a readout parallel to it when it is nonzero. If the difference is zero, every such readout has zero discriminability. This proves Eq.~\eqref{eq:innovation-sensitivity}.
+
+Invertibility of $W$ preserves the dimensions of $S$ and $S+\im C_B$. Applying the quotient-rank argument of Proposition~\ref{prop:innovation} after whitening therefore gives $\rank(Q_\Sigma WC_B)=\dim(S+\im C_B)-\dim S=d_B$. The decomposition of $W\mu$ into its orthogonal additive and complement parts gives the squared full discriminability by Pythagoras. The complement part equals $\lambda Q_\Sigma Wb$, proving the displayed formula. Its norm is linear in $|\lambda|$ under the fixed covariance assumption. The additive part can also change with $\lambda$, so this result does not assert that total discriminability must exceed an additive-only baseline.
+\end{proof}
+
+This connects the geometric and behavioral tests in one design: estimate a complement factorial contrast on held-out trials, establish that it changes between stimulus classes, estimate its noise covariance independently, then test the sensitivity predicted by Eq.~\eqref{eq:innovation-sensitivity}. A positive added rank can carry only a class-independent interaction and contribute no discriminability. For example, flipping both inputs $(u,v)\mapsto(-u,-v)$ leaves $\Bmap(u,v)$ unchanged, so a class contrast based only on that paired reversal has $b=0$ despite possible nonzero interaction rank. Likewise, a fixed readout orthogonal to the innovation is insensitive to it. Gain-dependent upstream noise can cancel the benefit, as in Eq.~\eqref{eq:sensitivity}; the present fixed-$\Sigma$ corollary isolates the condition under which rank becomes a behavioral opportunity. This is a bridge through an explicit decision model, not a claim that rank alone entails awareness or a positive regression interaction.
+
+\paragraph{Readout scope.} The discriminability formula assumes a fixed analysis time, fixed positive-definite covariance, and access to the optimal linear readout. A fixed biological decoder need not realize it. Nonlinear decisions or condition-dependent noise require a separate likelihood and sensitivity analysis; the geometric rank remains well defined but need not confer behavioral benefit.

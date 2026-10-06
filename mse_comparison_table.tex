@@ -1,0 +1,9 @@
+\begin{table}[htbp]\centering\small
+\caption{Paired test-risk differences over 300 independent synthetic realizations (seed 402600). Positive values favor the delayed bilinear predictor. Differences and confidence limits are in $10^{-3}$ squared output units. Intervals are pointwise 95\%; the four two-sided tests use Holm adjustment.}\label{tab:mse-ci}
+\begin{tabularx}{\linewidth}{@{}Yrrr@{}}\toprule
+Rival & Mean difference & 95\% interval & Adjusted $p$\\\midrule
+Additive & 1.49090 & [1.41112, 1.57067] & $<10^{-6}$\\
+Instantaneous bilinear & 1.50419 & [1.42383, 1.58455] & $<10^{-6}$\\
+Quadratic without delayed product & 1.51213 & [1.43155, 1.59270] & $<10^{-6}$\\
+Quadratic with delayed product & 0.00130 & [0.00094, 0.00165] & $<10^{-6}$\\
+\bottomrule\end{tabularx}\end{table}

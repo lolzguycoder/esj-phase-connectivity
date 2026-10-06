@@ -1,5 +1,6 @@
 \documentclass[submission,nolinenumbers]{esj}
-\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,graphicx,float}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem,graphicx,float,tabularx,array,ragged2e}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \setlength{\emergencystretch}{2em}
 \newcommand{\wrap}{\operatorname{wrap}}
 \newcommand{\R}{\mathbb R}
@@ -25,18 +26,16 @@
 
 \articletype{Research Article}\volume{0}\issue{0}\pubyear{2026}\firstpage{1}
 \articledoi{}\received{4 October 2026}
-\title{Conduction Delay and Receiver Preference in Single-Band Phase Connectivity: Identifiability and Completion}
-\shorttitle{Delay, preference, and completion}\shortauthors{Abdelgalil}
+\title{Phase-Gated Interregional Transfer: Single-Band Identifiability, Reciprocal Projection, and Completion Latency}
+\shorttitle{Phase-gated transfer and completion latency}\shortauthors{Abdelgalil}
 \author[1,*]{Karem Abdelgalil}\affil[1]{Independent Researcher, Cairo, Egypt}
 \corresp{Karem Abdelgalil, \href{mailto:kahmed.math.coder@gmail.com}{kahmed.math.coder@gmail.com}}
 
 \begin{abstract}
-In one stationary frequency band, a conduction delay and a receiver's preferred phase are not seen separately. Both enter a phase-difference measurement only through one offset, $\eta=\alpha+\Omega\tau$. A longer delay cancelled by a shifted preference leaves the score unchanged. Phase-lag consistency and pairwise phase consistency read that one number. The weighted phase-lag index does too, if the cross-spectrum itself is unchanged. This ridge does not make every phase method blind. A second frequency, an independent latency, or a changing sender speed can separate the two parameters. A receiver reset can test a gate and does not split them. Harmonics do not break the ridge if preference scales with harmonic number. Common drive does not break it either.
-
-The positive account keeps four objects apart: what a region encodes, how that code is translated, when the signal arrives, and which arrival phase the receiver treats as open. A phase--report correlation does not choose among a gate, a fixed delay, a shared input, and coherence that followed the message. The testable prediction is that sensitivity rises with routing when content is present. A direction is posted only if its projection through the translation, times the gate, clears a threshold. A direction outside that image never posts. The delay of a later report is the conduction inside $\eta$, or the wait until arrival phase enters the window. It is not an extra unreported latency. All checks are synthetic. Failure to report is not evidence that the experience was absent.
+Single-band carrier phase confounds conduction delay with transfer phase, while a receptive gate controls content amplitude. We formulate a calibrated complex Gaussian observation model and a retarded translation operator to separate parameter identification, projected delivery, threshold completion, and reciprocal return. A carrier-plus-gain observation identifies two effective offsets but leaves a one-dimensional parameter ridge. Two frequencies with shared transfer phase and an informative gain scan remove this local ambiguity on a calibrated phase branch. Nonzero item projection gives a modeled sender-dependent contribution, without ensuring threshold crossing. Reciprocal map products determine which content can return; independently timed echoes supply constraints unavailable from stationary phase. An invariant positive channel gives an explicit round-trip waiting time, while general stable channels permit rotation, cancellation, and transient crossings. A Lyapunov bound extends finite crossing certification to stable non-normal loops. A delayed-network extension derives item-specific supported-route arrival, cancellation-aware threshold bounds, and a dispersion bound while exposing conduction--processing ambiguity. Complement factorial contrasts and a Gaussian readout specify when interaction innovation carries discriminative information. Excitation limits which translation errors the stated learning rule can repair. Fixed-seed synthetic checks include parameter recovery, interval diagnostics, and paired prediction comparisons. Public datasets offer complementary component tests, but no inspected resource establishes the complete joint model. Neural and behavioral validation remains open.
 \end{abstract}
 
-\keywords{dictionary translation; conduction delay; phase connectivity; structural identifiability; unreported processing}
+\keywords{dictionary translation; conduction delay; phase connectivity; structural identifiability; reciprocal communication; communication subspace; completion latency; interaction rank}
 
 \setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
 \setlength{\floatsep}{6pt plus 2pt minus 2pt}
@@ -47,22 +46,20 @@ The positive account keeps four objects apart: what a region encodes, how that c
 \section{Introduction and inferential scope}\label{sec:intro}
 Communication-through-coherence proposes that phase can change how effectively one population drives another \citep{fries2015,bastos2015}. A communication subspace is the small set of source patterns that a downstream area actually reads \citep{semedo2019}. Access accounts separate local processing from report \citep{dehaene2006}. Recurrent-processing accounts separate experience from report \citep{lamme2006}. Coherence can follow a message rather than cause it \citep{schneider2021}, and real inter-areal delays complicate the estimate \citep{dowdall2023}.
 
-The paper has two dependent parts, in that order. Part one derives what a transferred cross-spectrum can identify. The ridge, the harmonic-rank cases, and common drive belong there. Part two uses that ridge. Completion in a receiver direction requires both a nonzero projection through the translation and a gate that clears threshold. The simulations that illustrate those two claims stay in the main text. Estimator checks that only show recovery when the generator is correct are in the supplement.
+The central architecture is a delayed, phase-gated translation between calibrated populations. It has both a carrier observation and a content response. We first analyze its one-way components, then connect them in an explicitly reciprocal system. The same map products generate stationary loop responses and returning content increments. Carrier observations constrain the gain used to predict delivery; independently timed content perturbations test that prediction and supply timing constraints unavailable from a single stationary band. This is the precise reciprocal connection, rather than an assertion that the identifiability theorem derives every content or report assumption. The contribution is the joint separation of identifiable offsets, projected return support, and operational completion latency, with uncertainty, interaction, and learning extensions. The underlying linear algebra and feedback methods are classical.
 
-Apparent coupling can arise without an interaction \citep{aru2015}. Phase consistency is not a receptive window \citep{vinck2011}. Coherence can follow a message \citep{schneider2021}. The gap filled here is narrower: in the transferred cross-spectrum of Eq.~\eqref{eq:obs}, delay and preference are not separate parameters. Harmonics do not fix this if preference scales with harmonic number. Common drive does not fix it either.
+\paragraph{Plain-language summary.} A dictionary describes what a population encodes; a translation describes what a receiver can read. A delay determines travel time. A receptive phase determines gain, whereas a transfer phase rotates a carrier. These phases need not be equal. A stable phase relation alone does not distinguish them or establish successful content transfer.
 
-\paragraph{Plain-language summary.} A dictionary is what a region encodes. A translation map is what another region can receive. Conduction and processing set when it arrives. Two translated pathways can also interact over time. These are separate objects. In one stationary frequency band, a single phase score cannot separate conduction delay from receiver preference. The simulations check the equations. They do not explain conscious experience.
+\paragraph{Positioning.} The contribution is a testable separation of four quantities: identifiable delay and phase combinations, structural content support, operational threshold completion, and reciprocal return. Projection geometry is already central to communication-subspace research. The added task here is to connect that geometry to a specified observation likelihood, delayed feedback, and calibrated readout predictions. Report motivates some experiments; it is not a quantity established by the projection theorem.
 
-A local population encodes task content in its own coordinates. A pathway translates those coordinates. Conduction and local processing set when the translated content can affect a receiver. Phase preference is a receptive window, not a list of meanings. The plain reading of $\eta$ is only that the measure sees one offset. It is not the content map $\Tij$. The contribution is that separation, a conditional identifiability result, a content-by-routing prediction, and rejection rules. The algebra is classical \citep{eisenberg2014,korenberg1996}. No general mathematical breakthrough is claimed.
+The mathematical ingredients are classical \citep{eisenberg2014,korenberg1996}. The useful synthesis is to separate parameter recovery, content support, amplitude, and operational completion in one specified model. Five questions remain distinct: structural identifiability, observational equivalence, predictive association, mechanistic identification against specified rivals, and causal identification under an intervention design. Failure of the first does not establish impossibility of the others.
 
-\paragraph{What this changes in measurement.} A phase--report correlation is a predictive association. It does not by itself identify a mechanism. Shown, under the stated assumptions: in one stationary band, $\eta=\alpha+\Om\tau$ is all a phase-difference likelihood sees, so phase-lag consistency and pairwise phase consistency cannot separately identify delay and preference. Not shown: that every observational design is uninformative, or that an arrival-phase intervention is the only identifying design. An independent delay is another escape. The access--trace split below is imposed by the generator.
+\subsection{Assumptions, limits, and scope}\label{sec:limits}
+The single-band result assumes a stationary angular frequency, fixed parameters, calibrated gain probes, and the observation model below. General waveforms, independently timed onsets, and additional amplitude channels can supply information outside that model. Conduction, filter phase, and processing duration are separate quantities. Unknown processing phase creates an additional ambiguity.
 
-Five inferential questions are distinct. \emph{Structural identifiability} concerns recovery of parameters in a fixed observation model. \emph{Observational equivalence} concerns identical observable distributions. \emph{Predictive association} concerns prediction of report. \emph{Mechanistic identification} concerns separation from specified rivals. \emph{Causal identification} concerns intervention effects under a justified design. Failure of the first does not imply impossibility of the others.
+``Unreported'' and ``report-associated'' denote outcomes of a specified report measure. There is no experience variable in the model. Failure to report may reflect sensitivity, criterion, retention, or motor limitations \citep{shanks2017}. The terms do not establish presence or absence of experience.
 
-\subsection{Assumptions and limits}\label{sec:limits}
-The negative result requires one stationary angular frequency, fixed preference and delay, and a likelihood depending on them only through $\eta$. A sinusoidal carrier gives a concrete realization. General finite-band waveforms, independently timed onsets, and unconstrained amplitude observations are outside the theorem. Frequency-dependent processing can add further ambiguities. Conduction delay is physiological travel time; filter phase delay and processing time are different quantities.
-
-Practical identifiability from EEG/MEG-type observations additionally depends on source mixing, common drive, filtering, waveform morphology, and observation error. Dense temporally correlated phase samples do not supply independent replication; the PPC bias correction does not eliminate this dependence \citep{vinck2010}. Synthetic trials and realizations below are independent by construction where stated. All operational thresholds are illustrative until frozen from independent pilot data. No simulation is empirical validation or an empirical sample-size calculation.
+Practical recovery additionally depends on mixing, common inputs, filtering, waveform morphology, and error. Dense correlated phase samples do not create independent replication; PPC correction does not remove this dependence \citep{vinck2010}. Synthetic realizations are independent where stated. Thresholds are illustrative until calibrated independently. Simulations are neither empirical validation nor empirical sample-size calculations.
 
 \subsection{What would discriminate this account}\label{sec:accounts}
 Table~\ref{tab:accounts} records shared commitments. Success on the named contrast would support a routing effect under the stated controls. It would not uniquely establish a theory of experience. If a late ignition proxy absorbs the routing term, this account adds nothing to an access model. If the intervention fails to change arrival phase at matched inputs, the comparison with coherence-as-consequence is inconclusive.
@@ -81,17 +78,28 @@ Coherence as consequence \citep{schneider2021} & Alignment can follow communicat
 Symbol & Definition\\\midrule
 $D_j,D_i,T_{ij}$ & Regional encoding maps and content-coordinate translation\\
 $\tau_{ij},h_{ij}(s)$ & Conduction delay and normalized causal processing kernel\\
-$\alpha,\eta$ & Receiver preference; effective carrier offset $\alpha+\Om\tau$\\
+$\alpha,\gamma,\eta,\xi$ & Receptive center; transfer phase; gate offset $\alpha+\Om\tau$; carrier offset $\gamma+\Om\tau$\\
 $\psi,\Delta$ & Observed simultaneous phase difference; modeled delayed arrival error\\
 $g,r,R$ & Phase gate; edge gain; boundary-route score\\
-$U,V,\Bmap,k,\chi$ & Translated pathway signals; bilinear map; interaction memory; coupling\\
+$U,V$ & Translated pathway signals\\
+$\Bmap$ & Bilinear receiver-coordinate map\\
+$k(s,q)$ & Interaction memory kernel\\
+$\chi$ (chi) & Interaction coefficient\\
 $A,\mathrm{E}_A$ & Access circuit and its directed boundary-edge set\\
 $\Content,d',q$ & Local content magnitude; sensitivity; response criterion\\
 $T_n,\ell_n$ & Slow translation trace and assigned learning-opportunity flag\\\bottomrule
 \end{tabular}\end{table}
 
+\paragraph{How to read and use this paper.} Section~\ref{sec:phase} is a self-contained observation and identifiability analysis; readers concerned only with phase measurement can start there. Section~\ref{sec:dictionary} defines the independently calibrated content maps needed for the positive account. Section~\ref{sec:projection} distinguishes structural support, item delivery, and threshold completion. Section~\ref{sec:sdt} links interaction rank to behavioral opportunity through the explicit Gaussian innovation readout of Corollary~\ref{cor:rank-sensitivity}. Section~\ref{sec:plastic} asks what the separate learning postulate can change. Sections~\ref{sec:simulation}--\ref{sec:practical} report implemented synthetic checks, while Section~\ref{sec:experiment} proposes independent empirical tests. For experiments, use Section~\ref{sec:constructive} for delay identification, Theorem~\ref{thm:inter} for delivery contrasts, Corollary~\ref{cor:completion} for threshold crossing, Theorem~\ref{thm:reciprocal} for returns, and Corollary~\ref{cor:unexcited} for restricted-training tests. Full proofs remain beside their statements; the supplement supplies reproduction details and secondary checks.
+
 \section{Dictionary translation with conduction and processing}\label{sec:dictionary}
-The identifiability result of Section~\ref{sec:phase} does not depend on the translation model below; it depends only on the form of the phase argument. The translation model is stated first because it fixes what the ridge is a ridge \emph{of}: without it, ``conduction delay'' and ``receiver preference'' have no defined referents. Readers interested only in the negative result may proceed to Section~\ref{sec:phase} and return here for the positive model in Section~\ref{sec:access}.
+
+
+This section defines the translation and retarded transfer used by both the carrier observation in Section~\ref{sec:phase} and the content response in Section~\ref{sec:access}. The elementary identifiability result can be read on its own, but the joint inference requires the calibrated content maps. Section~\ref{sec:reciprocal} closes the two directed transfers into a feedback loop and derives its projected returns and threshold waiting time. Removing either return path recovers the one-way limiting case.
+
+\begin{figure}[H]\centering\includegraphics[width=.96\linewidth]{figure_roadmap.pdf}\caption{Conceptual roadmap linking observation, projection, completion, return, and learning.}\label{fig:roadmap}\end{figure}
+
+The gate offset links observation to delivery. Reciprocal map products determine returning content; resolved echo timing supplies information outside the stationary ridge. Threshold crossing is separate from nonzero delivery. Learning changes the map between frozen calibration windows, while behavioral readout and bilinear integration remain explicitly specified extensions.
 
 For an externally anchored item $z\in\R^d$, regional population features are $x_j=\Dj z$ and the target receiver representation is $\Di z$. The translation error is
 \begin{equation}
@@ -103,7 +111,13 @@ These maps are frozen from separate calibration data and evaluated on held-out i
 A linear map $\Tij$ satisfying $\Tij \Dj=\Di$ exists if and only if $\Ker \Dj\subseteq\Ker \Di$.
 \end{proposition}
 \begin{proof}
-Necessity follows by applying the equality to a sender-null vector. For sufficiency, define $\Tij(\Dj z)=\Di z$ on $\im \Dj$. The kernel condition makes this well defined. Extend linearly to the remaining sender coordinates.
+We work in finite-dimensional real vector spaces. First suppose a linear $T_{ij}$ satisfies $T_{ij}D_j=D_i$. If $z\in\Ker D_j$, then $D_jz=0$, and hence $D_iz=T_{ij}D_jz=T_{ij}0=0$. Thus every sender-null item is receiver-null, giving $\Ker D_j\subseteq\Ker D_i$.
+
+Conversely assume this kernel inclusion. On the subspace $S=\im D_j$, define $T_0(D_jz)=D_iz$. This definition must be independent of the chosen preimage. If $D_jz=D_jz'$, then $z-z'\in\Ker D_j\subseteq\Ker D_i$, so $D_iz=D_iz'$. Therefore $T_0$ is well defined. For $a,b\in\R$ and $u=D_jz$, $u'=D_jz'$, linearity of both encoding maps gives
+\[
+T_0(au+bu')=T_0(D_j(az+bz'))=D_i(az+bz')=aT_0u+bT_0u'.
+\]
+Choose a basis of $S$ and extend it to a basis of the sender feature space. Define $T_{ij}$ to equal $T_0$ on the first basis vectors and assign arbitrary values, for example zero, on the added vectors. Linear extension defines a map on the entire feature space. For every $z$, $D_jz\in S$, so $T_{ij}D_jz=T_0D_jz=D_iz$. This proves sufficiency. The arbitrary extension also explains why calibration on $S$ alone cannot identify $T_{ij}$ outside $S$.
 \end{proof}
 Thus a feature annihilated by $\Tij \Dj$ cannot be restored by opening that pathway's scalar timing gate. Alternative pathways or a different translation can carry it; this claim concerns a fixed pathway, not all routes in a brain.
 
@@ -112,7 +126,7 @@ Let $h_{ij}$ be nonnegative, causal, and normalized, with finite first moment. D
 \begin{equation}
 \Delt_{ij}(t)=\wrap[\theta_j(t-\tauij)-\theta_i(t)-\alpha_{ij}],\label{eq:arrival}
 \end{equation}
-where $\wrap$ folds an angle into $(-\pi,\pi]$. The gate $g(\delta)=\exp\{\kappa(\cos\delta-1)\}$ satisfies $g(0)=1$ and $g(\pm\pi)=e^{-2\kappa}$. Larger $\kappa$ makes the receptive window narrower.
+where $\wrap$ folds an angle into $(-\pi,\pi]$. The gate $g(\delta)=\exp\{\kappa(\cos\delta-1)\}$ satisfies $g(0)=1$ and $g(\pm\pi)=e^{-2\kappa}$. The finite parameter $\kappa\ge0$ controls concentration; larger $\kappa$ makes the receptive window narrower. The phases $\theta_j,\theta_i$ belong respectively to the sender and receiver, and $\tau_{ij}\ge0$ is conduction time.
 \begin{equation}
 g(\delta)=\exp\{\kappa(\cos\delta-1)\},\quad r_{ij}(t)=w_{ij}g(\Delt_{ij}(t)),\quad w_{ij}\ge0,\label{eq:gate}
 \end{equation}
@@ -125,7 +139,7 @@ For constant gain and one Fourier component, the transfer multiplier is $r\Tij e
 \begin{equation}
 H_{ij}(\Om)=\int h_{ij}(s)e^{-i\Om s}\,ds.\label{eq:kernel}
 \end{equation}
-Its phase adds processing information. If $H$ is unknown, an effective phase quantity can contain $\alpha+\Om\tau-\arg H(\Om)$ under the chosen sign convention. It cannot identify three ingredients from one scalar. For small $\Om$, $-\arg H(\Om)/\Om$ tends to the kernel mean, but at finite frequency it need not equal that mean. This is why communication latency is not generally captured by one additional constant. In the theorem below the kernel is absent, known, or held fixed; it cannot silently enlarge the theorem's domain.
+Its phase adds processing information. If $H$ is unknown, an effective phase quantity can contain $\gamma+\Om\tau-\arg H(\Om)$, where $\gamma$ is a separate transfer phase under the chosen sign convention. It cannot identify three ingredients from one scalar. For small $\Om$, $-\arg H(\Om)/\Om$ tends to the kernel mean, but at finite frequency it need not equal that mean. This is why communication latency is not generally captured by one additional constant. In the theorem below the kernel is absent, known, or held fixed; it cannot silently enlarge the theorem's domain.
 
 \begin{proposition}[Translation and temporal fidelity]\label{prop:bound}
 Let $z(t)$ be Lipschitz with constant $L_z$, $r$ a constant nonnegative gain, $\mu_h=\int s h(s)\,ds$, and $U(t)=r\int h(s)TD_j z(t-\tau-s)\,ds$. Then
@@ -135,274 +149,522 @@ Let $z(t)$ be Lipschitz with constant $L_z$, $r$ a constant nonnegative gain, $\
 \end{equation}
 \end{proposition}
 \begin{proof}
-Add and subtract $rTD_j z(t)$. The static difference equals $rB z(t)+(r-1)\Di z(t)$. The remaining integral is bounded by $r\|TD_j\|L_z\int h(s)(\tau+s)\,ds$.
+Use the Euclidean vector norm and its induced operator norm, with $\tau\ge0$. Nonnegativity and normalization of $h$ imply $\int_0^\infty h(s)\,ds=1$. Add and subtract the undelayed translated vector to obtain the exact decomposition
+\[
+U(t)-D_iz(t)=r\int_0^\infty h(s)TD_j[z(t-\tau-s)-z(t)]\,ds
++rTD_jz(t)-D_iz(t).
+\]
+Since $B=TD_j-D_i$, the last two terms can be written as $rBz(t)+(r-1)D_iz(t)$. Their norm is at most $r\|B\|\|z(t)\|+|r-1|\|D_iz(t)\|$ by the triangle inequality.
+
+For the integral term, the integral triangle inequality, the operator-norm bound, and Lipschitz continuity give
+\begin{align*}
+\left\|r\int_0^\infty h(s)TD_j[z(t-\tau-s)-z(t)]\,ds\right\|
+&\le r\|TD_j\|\int_0^\infty h(s)L_z(\tau+s)\,ds\\
+&=r\|TD_j\|L_z(\tau+\mu_h).
+\end{align*}
+The finite first moment makes this bound finite and justifies integrability of the time-displacement term. Summing the static and temporal bounds proves Eq.~\eqref{eq:bound}. No equality of current and delayed content was assumed.
 \end{proof}
 The last term compares with \emph{current} target content. Against the appropriately delayed target, temporal displacement is not itself a representation error. A correct dictionary map, sufficient gain, and timely arrival are distinct conditions. Supplementary material gives serial-path composition, marker channels, and ordering counterexamples.
 
 \section{Conditional single-band non-identifiability}\label{sec:phase}
-The observation has to be written down before the ridge is a theorem. Let the sender carrier be $x_j(t)=A_j e^{i(\Om t+\phi_j)}$ and let the receiver's transferred drive be the conduction-delayed, preference-shifted copy
-\begin{equation}
-y_{i\leftarrow j}(t)=g(\Delt)\,e^{-i\alpha}\,x_j(t-\tauij).\label{eq:obs}
-\end{equation}
-The communication observation is the sender--drive cross-spectrum $S=\mathbb E[y_{i\leftarrow j}x_j^{*}]$. Substituting the carrier gives
-\begin{equation}
-\arg(S)=-(\alpha+\Om\tauij)=-\eta,\label{eq:obsphase}
-\end{equation}
-with the known kernel phase absorbed into $\alpha$. Thus this phase-difference observation depends on $(\alpha,\tau)$ only through $\eta$. The simultaneous oscillator contrast $\psi(t)=\wrap[\theta_j(t)-\theta_i(t)]$ does not contain $\alpha$ or $\tau$. A phase-locking score computed on $\psi$ alone cannot establish the title claim. The claim is about $S$, the phase of the transferred drive against the sender.
+\citet{dowdall2023} showed that transmission delays can change coherence and Granger-causality estimates in bidirectional systems through interference, even when the underlying interactions are otherwise unchanged. Proposition~\ref{prop:orbit} addresses a different, narrower question: a calibrated stationary carrier-plus-gate likelihood has an exact compensating parameter direction $(-\Omega,-\Omega,1)$, while its phase-only submodel has rank one. This is an explicit identifiability result for the stated observation model, not a derivation of their bidirectional interference mechanism.
 
-\begin{proposition}[Ridge of the transferred cross-spectrum]\label{prop:orbit}
-Under Eq.~\eqref{eq:obs}, $\arg(S)$ is unchanged by every admissible shift $(\alpha,\tau)\mapsto(\alpha+\Om u,\tau-u)$. No statistic of $S$ recovers $\tau$ separately from $\alpha$.
+A real nonnegative gate changes amplitude; it does not rotate a complex carrier. We therefore distinguish the receptive center $\alpha$ in Eq.~\eqref{eq:arrival} from a transfer phase $\gamma$. In a stationary probe with simultaneous phase contrast $\psi$, write
+\begin{equation}
+y_{i\leftarrow j}(t)=b\,g(\psi-\alpha-\Omega\tau)e^{-i\gamma}x_j(t-\tau),\quad
+x_j(t)=A_j e^{i(\Omega t+\phi_j)}.\label{eq:obs}
+\end{equation}
+Here $b>0$ is calibrated and any known processing phase is corrected separately. The sender--drive cross-spectrum has mean
+\begin{equation}
+S(\psi)=a\,g(\psi-\eta)e^{-i\xi},\qquad
+\eta=\alpha+\Omega\tau,\quad\xi=\gamma+\Omega\tau,\quad a=b|A_j|^2>0.\label{eq:obsphase}
+\end{equation}
+The raw contrast $\psi=\wrap(\theta_j-\theta_i)$ is a probe covariate, not an observation equation for the unknown delay. Equating $\gamma$ and $\alpha$ would be an additional physiological assumption; the main analysis does not impose it.
+
+\subsection{An explicit observation model}\label{sec:obsmodel}
+At independent calibrated probe phases $\psi_n$, observe
+\begin{equation}
+\widehat S_n=S(\psi_n)+\varepsilon_n,\quad
+\Re\varepsilon_n,\Im\varepsilon_n\stackrel{\mathrm{iid}}{\sim}N(0,s^2).
+\label{eq:noisyS}
+\end{equation}
+Thus $\mathbb E|\varepsilon_n|^2=2s^2$ and
+\begin{equation}
+\ell=-\frac{1}{2s^2}\sum_n|\widehat S_n-S(\psi_n)|^2+\mathrm{const}.
+\label{eq:loglik}
+\end{equation}
+For a mean vector $\mu$ its information is $\mathcal I_{kl}=s^{-2}\Re\sum_n(\partial_k\mu_n)^*\partial_l\mu_n$. A phase-only mean $a e^{-i(\gamma+\Omega\tau)}$ with fixed $a$ gives
+\begin{equation}
+\mathcal I_{\gamma,\tau}=\frac{Na^2}{s^2}
+\begin{pmatrix}1&\Omega\\\Omega&\Omega^2\end{pmatrix}.\label{eq:Fisher}
+\end{equation}
+This matrix has rank one. The receptive center $\alpha$ is not identified by this phase-only observation.
+
+\begin{proposition}[Single-band carrier and gate equivalence]\label{prop:orbit}
+In Eqs.~\eqref{eq:obsphase}--\eqref{eq:noisyS}, every admissible shift
+\[
+(\gamma,\alpha,\tau)\longmapsto(\gamma+\Omega u,\alpha+\Omega u,\tau-u)
+\]
+leaves the complete conditional observation law unchanged. Its information has rank at most two and null direction $(-\Omega,-\Omega,1)$. Informative gain probes can identify $\eta$ and $\xi$ locally, but cannot identify all three underlying parameters in one band.
 \end{proposition}
 \begin{proof}
-The shift adds $\Om u$ to the preference phase and subtracts the same amount from the conduction phase. Equation~\eqref{eq:obsphase} depends on the sum only. The sensitivity row $[1\ \ \Om]$ is one nonzero row when $\Om\ne 0$, so its rank is one. A prior can pick a point on that line. It does not make the likelihood distinguish two points with the same $\eta$. The posterior stays flat along the ridge, up to the prior.
+Write $p=(\gamma,\alpha,\tau)$ and $F(p)=(\xi,\eta)=(\gamma+\Omega\tau,\alpha+\Omega\tau)$. For $p_u=(\gamma+\Omega u,\alpha+\Omega u,\tau-u)$, direct substitution gives $F(p_u)=F(p)$. Consequently $S_n(p_u)=S_n(p)$ for every probe $\psi_n$. The noise covariance in Eq.~\eqref{eq:noisyS} is fixed, so the product Gaussian densities coincide at every possible observed vector. This proves equality of the complete conditional laws, not just equality of noiseless phases.
+
+The Jacobian of $F$, in the stated parameter order, is
+\[
+J=\begin{pmatrix}1&0&\Omega\\0&1&\Omega\end{pmatrix}.
+\]
+It has two independent rows and satisfies $Jn=0$ for $n=(-\Omega,-\Omega,1)^\top$. By the likelihood chain rule, the parameter score is $J^\top$ times the offset score, so $\mathcal I_p=J^\top\mathcal I_FJ$. Therefore $\rank\mathcal I_p\le2$ and $\mathcal I_pn=0$.
+
+The condition for attaining rank two can also be stated explicitly. At a probe, write $g_n=g(\psi_n-\eta)$ and $g_n'=g'(\psi_n-\eta)$. Then $\partial_\xi S_n=-ia g_ne^{-i\xi}$ and $\partial_\eta S_n=-a g_n'e^{-i\xi}$. Their real information cross-product is zero, because one derivative is a quadrature rotation of the other. Thus
+\[
+\mathcal I_F=\frac{a^2}{s^2}
+\begin{pmatrix}\sum_n g_n^2&0\\0&\sum_n(g_n')^2\end{pmatrix}.
+\]
+The first diagonal entry is positive because $a>0$ and $g_n>0$. The second is positive precisely when at least one probe has $g_n'\ne0$. Under that informative-scan condition, $\mathcal I_F$ is positive definite and $\mathcal I_p$ has rank two. Its null space is exactly $\Ker J$, which is one-dimensional. Phase wrapping may add discrete aliases but does not alter this local null direction.
 \end{proof}
-This is a reparameterization of one explicit observation, not a symmetry of a field and not a claim about every phase statistic. Admissible shifts respect $\tau\ge 0$. A prior can select a point on the ridge. It does not identify that point from $S$.
+Independent same-band observations improve precision along identified directions but do not change this null direction. Every statistic of an unchanged law is invariant in distribution. A prior can favor a point on the ridge without resolving likelihood identifiability. Phase wrapping also creates discrete aliases; all rank claims here are local on a calibrated branch.
 
 \subsection{Observed phase scores are not arrival error}\label{sec:measures}
-The measured simultaneous contrast is $\psiw(t)=\wrap[\theta_j(t)-\theta_i(t)]$. It is distinct from the latent $\Delt=\wrap[\psiw-\eta]$ in the stationary regime. PLV-like consistency $L=|N^{-1}\sum e^{i\psi_n}|$ and PPC are invariant to a \emph{constant rotation} of their phase samples. Neither therefore measures proximity to a receptive phase. A stable arrival error of $\pi$ gives consistency one but gate $e^{-2\kappa}$.
-
-Standard wPLI is different. For cross-spectral samples $S_n=X_{j,n}X_{i,n}^{*}=a_n e^{i\psi_n}$,
+PLV-like consistency $|N^{-1}\sum_n e^{i\psi_n}|$ and PPC are invariant to constant rotation of their phase samples. They quantify concentration, not proximity to a receptive phase. Constant opposite-phase arrival can give consistency one while gain is $e^{-2\kappa}$.
+For samples $S_n=a_n e^{i\psi_n}$, the absolute (unsigned) wPLI is
 \begin{equation}
 \widehat{\mathrm{wPLI}}=\frac{|\sum_n a_n\sin\psi_n|}{\sum_n a_n|\sin\psi_n|},\label{eq:wpli}
 \end{equation}
-when the denominator is nonzero \citep{vinck2011}. wPLI uses magnitude weights and is not generally invariant to rotating $\psi$. It is unchanged along the ridge only when the ridge shift leaves the whole cross-spectral law unchanged, including the weights $a_n$. A pure phase shift of $S$ does that. A shift that also changes amplitude does not. Invariance of every statistic is then the trivial consequence of an unchanged law, not a special property of wPLI.
-
-\begin{table}[htbp]\centering\caption{Observation assumptions determine what is identifiable.}\label{tab:measures}
-\begin{tabular}{@{}p{.29\linewidth}p{.65\linewidth}@{}}\toprule
-Observation or design & Inference under explicit conditions\\\midrule
-Law depending only on $\eta$ & Cannot separately identify $\alpha,\tau$; all its statistics inherit equivalence.\\
-PLV / PPC & Consistency, not receptive alignment; full-law ridge applies if assumed.\\
-wPLI & Ridge applies to an unchanged cross-spectral law; not generally rotation-invariant or phase-only.\\
-Two or more frequencies & Can identify a shared delay and frequency-invariant preference after justified unwrapping.\\
-Higher harmonics / waveform & May add information with a constrained harmonic response model; no automatic rank gain.\\
-Receiver phase reset & Can test gate effects; a known additive receiver phase does not split $\alpha,\tau$.\\
-Independent latency / chirp & Can supply a transverse constraint under the stated observation model.\\\bottomrule
-\end{tabular}\end{table}
-A phase--report association does not by itself uniquely distinguish phase gating from common input or coherence following communication. That conclusion concerns unspecified alternatives and causal design, not a consequence of rank one alone. No claim is made that observational gating tests are universally impossible.
+when the denominator is nonzero \citep{vinck2011}. The triangle inequality bounds the numerator by the denominator, so this ratio lies in $[0,1]$. It is not generally rotation invariant. Along the full-law equivalence of Proposition~\ref{prop:orbit}, its distribution is unchanged because the entire observation law is unchanged. An arbitrary rotation of a cross-spectrum does not establish that equivalence.
 
 \subsection{Measurements that can add a parameter direction}\label{sec:constructive}
-With frequency-independent preference and known processing phase, unwrapped $\eta_k=\alpha+\Om_k\tau$ has a rank-two design when frequencies differ. Arbitrary $\alpha(\Om)$ or unknown processing phase restores ambiguity. A harmonic measurement $\eta_m=\alpha+m\Om\tau$ adds rank only if the \emph{same} $\alpha$ is justified; $\eta_m=m(\alpha+\Om\tau)$ adds no rank. Higher harmonics alone prove neither case. Phase-slope measures have their own assumptions \citep{nolte2008}.
-
-For a known chirp $\theta(t)=\Om_0 t+a t^2/2$, $a\ne0$, and unwrapped observations $Y_k=\alpha+\theta(t_k)-\theta(t_k-\tau)+e_k$, independent errors of variance $\sigma^2$ yield $\widehat\tau=\sum(t_k-\bar t)(Y_k-\bar Y)/(aS)$, $S=\sum(t_k-\bar t)^2$, with variance $\sigma^2/(a^2 S)$. The slope is $a\tau$. This constructive escape needs excitation, calibrated phase, and justified unwrapping. A receiver reset remains a known additive term. Arrival-phase intervention is one gate-testing strategy, not the only identifying design. With frequency-invariant preference, unwrapped offsets at $8$ and $16$~Hz, and true delay $18$~ms, least squares recovered that delay at noise SD $0.2$~rad with between-run SD $0.98$~ms over $200$ runs. A known chirp of slope $40$~rad/s$^{2}$ recovered the same delay with SD $4.8$~ms. A single frequency still supplies only $\eta$. The three panels are Figure~\ref{fig:escape}.
-
-\begin{figure}[htbp]\centering\includegraphics[width=.88\linewidth]{figure8.pdf}\caption{Constructive escapes. Two frequencies recover an 18~ms delay. A chirp recovers it from the slope. The single-band panel is constant along the ridge. Synthetic only.}\label{fig:escape}\end{figure}
-
-\subsection{From identification to delivery: a delay--preference trade-off}\label{sec:delivery}
-The ridge in Proposition~\ref{prop:orbit} is a statement about what a phase-difference likelihood can recover. It also constrains delivery. Fix one scalar feature channel, a stationary single-band regime, and a known processing kernel whose Fourier phase has been absorbed into $\alpha$. Define delivered content at the carrier by
+With shared frequency-independent $\gamma$ and corrected processing phase, two unwrapped carrier offsets obey $\xi_k=\gamma+\Omega_k\tau$. Their design has rank two for distinct frequencies. A calibrated gain scan at the first frequency then supplies $\eta_1$ and $\alpha=\eta_1-\Omega_1\tau$. This combined design identifies all three parameters locally. Arbitrary frequency dependence of transfer phase removes this conclusion.
+For independent offset errors of variance $s_\xi^2$ and $N$ trials in each of two bands,
 \begin{equation}
-\mathcal C(\eta)=|t|\,|x_j|\,g(\eta),\qquad g(\eta)=e^{\kappa(\cos\eta-1)},\quad\kappa>0,\label{eq:delivered}
+\operatorname{Var}(\widehat\tau)=\frac{2s_\xi^2}{N(\Omega_2-\Omega_1)^2}.
+\label{eq:delayvariance}
 \end{equation}
-where $t=T_{ij}$ is the scalar translation and $|x_j|$ is the sender amplitude. Content outside the preferred phase is attenuated, not destroyed.
+Here the two-band design for $(\gamma,\tau)$ is $X_2=\bigl(\begin{smallmatrix}1&\Omega_1\\1&\Omega_2\end{smallmatrix}\bigr)$. Independent band means have variance $s_\xi^2/N$, and their difference cancels the common intercept: $\widehat\tau=(\bar\xi_2-\bar\xi_1)/(\Omega_2-\Omega_1)$. Adding the gain-center row yields the three-parameter design in Eq.~\eqref{eq:jointdesign}.
 
-\begin{proposition}[Delay--preference trade-off]\label{prop:delivery}
-Under those assumptions:
-\begin{enumerate}[label=(\roman*),leftmargin=*]
-\item \emph{Ridge invariance.} Any admissible shift $(\alpha,\tau)\mapsto(\alpha+\Om u,\tau-u)$ that preserves $\eta$ leaves $\mathcal C(\eta)$ unchanged. Conversely, $\mathcal C$ is strictly decreasing in $|\eta|$ on $(0,\pi)$, with $\mathcal C(0)=|t|\,|x_j|$ and $\mathcal C(\pm\pi)=|t|\,|x_j|\,e^{-2\kappa}$.
-\item \emph{Local transfer bound.} Since $e^{-x}\ge 1-x$,
+A known chirp $\theta(t)=\Omega_0t+at^2/2$, $a\ne0$, instead gives $Y_k=\gamma+\theta(t_k)-\theta(t_k-\tau)+e_k$ with slope $a\tau$ and variance $s_\xi^2/[a^2\sum_k(t_k-\bar t)^2]$. Excitation, calibrated phase, and unwrapping remain necessary. A known additive receiver reset changes the gain probe but supplies no independent delay constraint.
+The simulations use 8 and 16 Hz, true delay 18 ms, 32 independent offsets per band, and phase SD 0.2 rad. Across 300 runs the delay SD is 1.006 ms, compared with the predicted 0.995 ms. A chirp with 128 times on $[0,1]$ s and slope 40 rad/s$^2$ has delay SD 1.511 ms. Sample count explains why this differs from earlier illustrative chirp numbers.
+
+\subsection{From identification to delivery: an exact window}\label{sec:delivery}
+For a fixed item $z$ and unit scalar readout $v$, put $M=TD_j$ and $A_v=|v^\top Mz|$. In an instantaneous amplitude model,
 \begin{equation}
-\mathcal C(\eta)\ge |t|\,|x_j|\left(1-\tfrac{\kappa}{2}\eta^2\right)
-\quad\text{for }|\eta|\le\sqrt{2/\kappa}.
-\label{eq:transfer-bound}
+\mathcal C_v=A_vg(\delta),\quad \delta=\wrap(\psi-\eta),\quad
+ g(\delta)=e^{\kappa(\cos\delta-1)}.\label{eq:delivered}
 \end{equation}
-whenever that display applies. The two sides agree through second order. A target fractional loss $\varepsilon\in(0,1)$ in this approximation therefore requires
+At fixed $\psi$ and item, compensated changes of $\alpha,\tau$ preserve this amplitude. This says nothing about a transient content onset displaced by a changed conduction delay.
+\begin{proposition}[Exact delivery window]\label{prop:delivery}
+Let $A_v\ge0$, $\kappa>0$, and threshold $\theta>0$. If $A_v<\theta$, no phase passes. If $\theta\le A_ve^{-2\kappa}$, every phase passes. Otherwise, for $A_ve^{-2\kappa}<\theta\le A_v$, passage is equivalent to
 \begin{equation}
-|\eta|\le\sqrt{2\varepsilon/\kappa}.\label{eq:tolerance}
+|\delta|\le\arccos\left(1+\frac{\log(\theta/A_v)}{\kappa}\right).
+\label{eq:tolerance}
 \end{equation}
-\item \emph{No free improvement from delay alone.} An intervention that changes $\tau$ by $\delta\tau$ and leaves $\alpha$ fixed changes $\eta$ by $\Om\delta\tau$. In this stationary band, the change in delivered content is a function of $\eta$ alone. Without a measurement that separates $\alpha$ from $\tau$, that intervention is indistinguishable, in delivered content, from a preference shift of the same size.
-\item \emph{Bandwidth escape, with a sign condition.} If the same frequency-invariant preference is evaluated at $M\ge 2$ distinct frequencies, Proposition~\ref{prop:harmonic}(ii) recovers $\tau$ from the offsets. The $\tau$-derivative of the band sum is proportional to $-\sum_m \Om_m\sin(\eta_m)g(\eta_m)$. The sum is strictly monotone on an interval where every $\sin(\eta_m)$ has the same strict sign. It is not monotone in general, because bands can sit on opposite sides of the preferred phase.
-\end{enumerate}
+Also $g(\delta)\ge1-\kappa\delta^2/2$ for real $\delta$.
 \end{proposition}
 \begin{proof}
-(i) follows because $\mathcal C$ depends on $(\alpha,\tau)$ only through $\eta$, and $\cos\eta$ falls strictly on $[0,\pi]$. (ii) is the tangent bound on $e^{-x}$ at $x=\kappa\eta^2/2$, using $\cos\eta=1-\eta^2/2+O(\eta^4)$. (iii) is (i) applied to the two interventions. (iv) is differentiation under the sum; opposite signs of $\sin(\eta_m)$ can cancel.
+Assume $\kappa>0$, as required by the displayed inverse window. Let $d=|\wrap(\delta)|\in[0,\pi]$. On this interval, $\cos d$ decreases from 1 to $-1$, so the range of $g$ is $[e^{-2\kappa},1]$.
+
+If $A_v<\theta$, then $A_vg(d)\le A_v<\theta$, including $A_v=0$. If $\theta\le A_ve^{-2\kappa}$, the lower gate bound gives $A_vg(d)\ge\theta$ for all $d$. These establish the first two cases, including their boundary inequalities.
+
+In the remaining case $A_ve^{-2\kappa}<\theta\le A_v$, necessarily $A_v>0$. Division and logarithms preserve the inequality and yield
+\[
+A_vg(d)\ge\theta\ \Longleftrightarrow\
+\cos d\ge1+\frac{\log(\theta/A_v)}{\kappa}.
+\]
+The right-hand side lies in $(-1,1]$. Since cosine is one-to-one and decreasing on $[0,\pi]$, this is equivalent to the window in Eq.~\eqref{eq:tolerance}. At $\theta=A_v$ its half-width is zero, so only perfect alignment passes.
+
+Finally $1-\cos\delta\le\delta^2/2$ for every real $\delta$. Combining $e^{-x}\ge1-x$ for $x\ge0$ with $x=\kappa(1-\cos\delta)$ gives $g(\delta)\ge1-\kappa(1-\cos\delta)\ge1-\kappa\delta^2/2$. If $\kappa=0$, the gate is identically one and the threshold test is simply $A_v\ge\theta$; no inverse window is needed.
 \end{proof}
-The alignment tolerance $\theta_{\rm align}=\pi/4$ in Section~\ref{sec:access} is not universal. At $\kappa=2$ the exact gate is $e^{2(\cos(\pi/4)-1)}\approx 0.557$, and the quadratic approximation gives $1-\kappa\theta_{\rm align}^2/2\approx 0.383$. Unless an experiment specifies another loss, the default target is $\varepsilon=0.1$, which converts through Eq.~\eqref{eq:tolerance} to $|\eta|\le 0.32$ at this $\kappa$. Part (iv) is a delivery-side companion to Section~\ref{sec:constructive}, not a claim about phase communication in general.
+The quadratic bound supplies a sufficient small-loss tolerance; it is not an exact necessary condition. At $\kappa=2$, gain at $\pi/4$ is 0.557; a 10\% loss target has exact half-width approximately 0.326 rad. For fixed positive amplitude weights $A_k$ and zero probe phases, a band sum $\mathcal C=\sum_k A_kg(\eta_k)$ has derivative $\mathcal C'(\tau)=-\kappa\sum_k A_k\Omega_k\sin(\eta_k)g(\eta_k)$. For example, offsets $\eta_1=\pi/2$, $\eta_2=-\pi/2$ and weights satisfying $A_1\Omega_1=A_2\Omega_2$ give a zero derivative even though each band contributes a nonzero derivative. A common delay therefore need not improve total delivery monotonically.
+
+\paragraph{An identification design rather than a correlation test.}
+The three effective measurements $(\xi_1,\xi_2,\eta_1)$ have parameter Jacobian
+\begin{equation}
+J=\begin{pmatrix}1&0&\Omega_1\\1&0&\Omega_2\\0&1&\Omega_1\end{pmatrix},
+\qquad |\det J|=|\Omega_2-\Omega_1|.\label{eq:jointdesign}
+\end{equation}
+Consequently, a calibrated two-band carrier measurement and one informative gain scan resolve the local three-parameter ambiguity. This design connects the phase analysis to the delivery model: carrier phase estimates transfer, whereas the gain scan estimates reception. It fails when processing corrections or the shared transfer-phase assumption fail. These failures are experimentally distinguishable from a correct but imprecise fit.
 
 \subsection{Why harmonics do not generically break the ridge}\label{sec:harmonics}
-A natural objection to Proposition~\ref{prop:orbit} is that a nonlinear receiver could respond to harmonics of the carrier, and each harmonic supplies an equation $\eta_m=\alpha_m+m\Om\tau$. The following proposition makes the resulting rank structure precise.
-
 \begin{proposition}[Harmonic rank]\label{prop:harmonic}
-Let observations at harmonics $m=1,\dots,M$ be $\eta_m=\alpha_m+m\Om\tau$, with $\alpha_m\in\R$ free. Then:
-\begin{enumerate}[label=(\roman*),leftmargin=*]
-\item If all $\alpha_m$ are free, the parameters $(\alpha_1,\dots,\alpha_M,\tau)$ are unidentifiable whenever $M\ge2$: the design matrix has rank $M$, leaving a null space of dimension one in an $(M+1)$-dimensional parameter space.
-\item If $\alpha_m=\alpha$ for all $m$ (frequency-invariant preference), the ridge is broken whenever $M\ge2$ and $\Om\ne0$; the design matrix $[\,\mathbf{1}_M\ \ |\ \ \Om(1,\dots,M)^\top\,]$ has rank two.
-\item If $\alpha_m=m\alpha$ (harmonic-scaled preference), the model reduces to $\eta_m=m(\alpha+\Om\tau)$ and the ridge persists.
-\end{enumerate}
+For unwrapped carrier offsets $\xi_m=\gamma_m+m\Omega\tau$, $m=1,\ldots,M$, free $\gamma_m$ give design rank $M$ in $M+1$ parameters. Shared $\gamma_m=\gamma$ gives rank two for $M\ge2$ and $\Omega\ne0$. Harmonic-scaled $\gamma_m=m\gamma$ gives only $\xi_m=m(\gamma+\Omega\tau)$ and retains rank one.
 \end{proposition}
 \begin{proof}
-(i) uses $[I_M\mid \Om(1,\dots,M)^\top]$. Those $M$ leading columns span $\R^M$, so the rank is $M$ and one delay direction remains free. (ii) uses a different matrix, the one-column design $[\mathbf{1}_M\mid \Om(1,\dots,M)^\top]$, not the identity design of (i). Those two columns are independent when $M\ge 2$ and $\Om\ne 0$, so the rank is two and the ridge breaks. (iii) Substitution gives $\eta_m=m(\alpha+\Om\tau)$, which depends on $(\alpha,\tau)$ only through $\eta$.
+Let $c=\Omega(1,\ldots,M)^\top$. With free transfer phases, the map from $(\gamma_1,\ldots,\gamma_M,\tau)$ to the offsets is multiplication by $[I_M\mid c]$. Its first $M$ columns already span $\R^M$, so its rank is $M$. A vector $(b,t)$ is in its null space exactly when $b+ct=0$, or $b=-ct$. Thus the null space consists of $t(-c,1)$ and has dimension one.
+
+With shared transfer phase, the design is $[\mathbf1_M\mid c]$. Suppose $a\mathbf1_M+bc=0$. Comparing rows 1 and 2 gives $b\Omega=0$. If $M\ge2$ and $\Omega\ne0$, this implies $b=0$, and either row then implies $a=0$. The two columns are independent, so rank is two. If there is only one row or $\Omega=0$, that argument fails and rank cannot be two.
+
+For harmonic-scaled phase, put $h=(1,\ldots,M)^\top$. The design becomes $[h\mid\Omega h]$, whose columns are proportional and whose first column is nonzero. Its rank is one; its null vector in $(\gamma,\tau)$ is $(\Omega,-1)$. A calibrated unwrapping branch or independent coarse latency bound is needed to exclude discrete aliases before applying these rank results. These computations concern unwrapped offsets under their respective parameter constraints. They do not resolve discrete phase aliases.
 \end{proof}
+These are assumptions on harmonic transfer phases, not a consequence of observing a nonsinusoidal waveform. Phase-slope methods likewise require response constraints \citep{nolte2008}.
 
-Case (iii) is the dangerous one: a preference that scales with harmonic number, as in a constant group delay, is not rescued by adding harmonics.
-
-\subsection{Common drive does not break the ridge}\label{sec:commondrive}
-The practical threat of common drive in Section~\ref{sec:practical} has a formal counterpart.
-
-\begin{proposition}[Common drive]\label{prop:drive}
-Suppose both sender and receiver observe a common carrier-frequency signal $c(t)=|c|e^{i(\Om t+\phi_c)}$, so the observed phases are $\theta_j^{\rm obs}(t)=\theta_j(t)+\gamma_j c(t)$ and $\theta_i^{\rm obs}(t)=\theta_i(t)+\gamma_i c(t)$ for constants $\gamma_j,\gamma_i$. Then the observed phase difference differs from $\psi(t)$ by a complex constant in the rotating frame of $\Om$, and identifiability of $(\alpha,\tau)$ from $\psiw^{\rm obs}$ alone is unchanged.
+\subsection{Common drive and the ridge}\label{sec:commondrive}
+Observed analytic signals may be mixed as $x^{\rm obs}=x+c_jc$ and $y^{\rm obs}=y+c_ic$; their phases are arguments of these complex sums. Adding a complex carrier directly to a real angle is not a valid phase observation model.
+\begin{proposition}[Parameter-independent observation channels]\label{prop:drive}
+If the complete latent joint law is invariant under a parameter shift and the observation channel, including added common drive, is parameter independent, the observed law is also invariant.
 \end{proposition}
 \begin{proof}
-In the rotating frame the observed contrast differs from $\psi$ by the constant $(\gamma_j-\gamma_i)|c|e^{i\phi_c}$. That constant shifts $\alpha$ and leaves the sensitivity row $[1\ \ \Om]$ unchanged, so the ridge persists. Common drive can inflate fitted concentration. It does not identify $\tau$ separately from $\alpha$. Only an intervention that changes $\tau$ without changing the common drive breaks it. The ridge therefore survives common drive.
+Let $P_p$ denote the complete latent law at parameter $p$ and let $K(x,E)$ be the parameter-independent observation kernel: for latent state $x$, it is the probability that the measured observation falls in a measurable set $E$. The observed law is
+\[
+P_p^{\rm obs}(E)=\int K(x,E)\,P_p(dx).
+\]
+If a shift gives $P_{p'}=P_p$, integration against the same kernel gives $P_{p'}^{\rm obs}(E)=P_p^{\rm obs}(E)$ for every measurable $E$. Hence the observed probability measures coincide. Added common drive must be part of the invariant joint latent law or of this fixed kernel; equality of only the sender--receiver marginal need not suffice if the extra drive has parameter-dependent dependence on them. The result therefore preserves an existing equivalence under fixed observation channels without asserting equivalence for every common-drive generator.
 \end{proof}
+This conditional result does not claim that all common-drive models retain the same ridge. Additional parameter-dependent observations can add information. Unmodeled common drive can bias recovered phases even when it adds no justified identifying constraint.
 
-\section{Unreported processing, access, and finite-memory interaction}\label{sec:access}
-``Unreported processing'' means task-relevant local content with a prespecified failure of report. The motivating words ``subconscious'' and ``conscious communication'' refer here only to an unreported pathway $p$ and a report-associated pathway $c$. They are not measured experiential states. Report failure may reflect sensitivity, criterion, retention, or motor limitations \citep{shanks2017}; it does not establish absent experience.
+\begin{figure}[htbp]\centering\includegraphics[width=.94\linewidth]{figure_joint.pdf}\caption{Synthetic joint recovery under the calibrated two-band and gain-scan design. The panels use the same $\gamma,\alpha,\tau$ notation as the revised source code. The 300 runs use truth $\gamma=0.35$ rad, $\alpha=0.8$ rad, and $\tau=18$ ms; correct specification and a calibrated unwrapped branch are assumed.}\label{fig:escape}\end{figure}
 
-The access circuit $A$ and incoming edges $\EA$ are independently localized. A route score may be defined as $R=\sum_{(i,j)\in\EA}\lambda_{ij}r_{ij}$, with calibrated nonnegative weights summing to one. Internal coordination within $A$ does not establish item arrival. A model posting rule requires calibrated local content, arrival alignment $|\Delt|\le\theta_{\rm align}$, and $R\ge R_*$; multiple paths require a preregistered aggregation rule. $\theta_{\rm align}=\pi/4$ and $R_*=0.5$ are illustrative generator choices. Finite-$\kappa$ opposite-phase gain is attenuation, not structural closure.
+\section{Projected transfer, reciprocal feedback, and receiver readout}\label{sec:access}
+An independently localized access circuit $A$ has incoming edges $\EA$. Define a route score $R=\sum_{(i,j)\in\EA}\lambda_{ij}r_{ij}$ with fixed nonnegative weights summing to one. This aggregate need not equal the gain of any particular content channel. Any report rule, decoder, threshold, and path aggregation must be frozen separately from confirmatory outcomes.
 
-\subsection{The delay in an unreported pathway}\label{sec:unreported-delay}
-An unreported pathway means local content is present and the specified report has not occurred (the motivational gloss is in the section opening). The question is whether that failure introduces a delay beyond conduction.
+\subsection{Completion latency and report status}\label{sec:ridgeconstrains}
+A stationary gain depends on $\eta$; its amplitude is invariant along the compensated shift in Proposition~\ref{prop:orbit}. An operational completion time inherits that invariance only when item amplitude trajectories, availability times, probe trajectories, thresholds, and relevant noise laws also stay fixed. Changing conduction can move a transient onset even if a carrier phase is compensated. Completion can be tested without identifying every parameter: testing an observable threshold law does not necessarily require breaking its parameter ridge. Distinguishing delay from receptive or transfer phase does require a transverse constraint.
 
-\begin{proposition}[No extra latency for unreported transfer]\label{prop:unreported}
-Let pathway $p$ carry content from time $0$, with stationary offset $\eta_p=\alpha_p+\Om\tau_p$, and let posting require $|\eta_p|\le\theta$ and $R\ge R_*$.
-\begin{enumerate}[label=(\roman*),leftmargin=*]
-\item If $|\eta_p|>\theta$, the gate is constant on the window. The pathway does not post on any subinterval. A stationary offset does not generate a within-window waiting time.
-\item If an intervention makes the arrival error $\delta(t)$, the report lag after local availability is the hitting time $\tau_{\rm hit}=\inf\{t\ge 0:|\delta(t)|\le\theta,\ R(t)\ge R_*\}$. This is a functional of the trajectory, not a new conduction parameter.
-\item In the conjunction of Eq.~\eqref{eq:mixed}, a closed unreported gate attenuates the cross-path term even if the report-associated gate is open. The physical delay of that term is $\tau_p$ plus interaction memory, not a separate unreported duration.
-\item If $T_p x=0$, neither $\tau_p$ nor $\tau_{\rm hit}$ restores that direction.
-\end{enumerate}
-\end{proposition}
-\begin{proof}
-(i) Stationarity makes $\eta_p$ constant, so the predicate $|\eta_p|\le\theta$ is constant. (ii) is the definition of the first time the posting predicate holds; it adds no parameter to $(\alpha_p,\tau_p)$. (iii) The integrand of $I(t)$ contains the factor $g(\Delta_p)$, hence $g(\eta_p)$ in the stationary band, and the content argument is already delayed by $\tau_p$. (iv) is Proposition~\ref{prop:translation}.
-\end{proof}
-So the delay in an unreported pathway is one of two objects already in the model: the conduction inside $\eta$, or the time until an intervention moves arrival phase into the window. This is not a separate parameter, and it is not a claim about the duration of experience. The model has no experience variable. A stationary offset is either already inside the window or never enters it, so the hitting time is $0$ or undefined. A moving offset has hitting time determined by the path of $\delta(t)$. In the linear example $\delta(t)=1.4-1.6t$, that time is $0.562$~s.
+\paragraph{Latency components and report status.}\label{sec:unreported-delay}
+The generator contains conduction, processing kernels, and threshold waiting. It introduces no additional report-status latency parameter. This is a model specification, not proof that biology has no additional latency. For a constant offset and already available constant-amplitude one-way contribution, a threshold is either met immediately or never met. A changing offset can yield a finite hitting time; an absent projected vector cannot be repaired by scalar gain. With $\delta(t)=1.4-1.6t$ and half-width 0.5 rad, first entrance is 0.5625 s after the stated starting time. Reciprocal accumulation is a different possibility: Section~\ref{sec:reciprocal} derives a finite waiting time from delayed returns even when all gates remain constant.
 
-\subsection{Projection sets the posting threshold}\label{sec:projection}
-Only the part of a sender feature in the image of $\Tij\Dj$ can cross a gate. Delivered amplitude in a unit direction $v$ is
+\subsection{Projection sets the posting threshold}
+The next results answer three successive questions. Can the pathway support the readout at all? Does the particular item produce a nonzero receiver contribution? Does that contribution reach the operational threshold? A positive answer to one question does not automatically answer the next.\label{sec:projection}
+For $M=TD_j$, unit readout $v$, and item $z$, define
 \begin{equation}
-a_v(x,\eta)=|v^{\top}\Tij\Dj x|\,g(\eta).\label{eq:amplitude}
+a_v(z,\delta)=|v^\top Mz|g(\delta).\label{eq:amplitude}
 \end{equation}
-Posting means $a_v\ge\theta_{\rm comm}$. That is a threshold on delivered amplitude, not on experience.
+The readout is structurally unsupported if $v\perp\im M$. It can receive some item if $v\notin(\im M)^\perp$. Membership $v\in\im M$ is not the criterion: a direction outside the image can still have nonzero projection onto it. Even a supported readout can have zero amplitude for a particular item.
 
-\begin{lemma}[Projection threshold]\label{prop:projection}
-If $v$ is orthogonal to $\im(\Tij\Dj)$, then $a_v=0$ for every $\eta$. Otherwise posting requires $g(\eta)\ge\theta_{\rm comm}/|v^{\top}\Tij\Dj x|$. A coordinate outside $\mathrm{span}\{U,V\}$ equals its cross-term component, and either closed gate blocks it.
+\begin{lemma}[Structural support and item amplitude]\label{prop:projection}
+The amplitude vanishes for every item and every phase if and only if $v^\top M=0$. For a fixed item, nonzero amplitude is equivalent to $v^\top Mz\ne0$, since $g(\delta)>0$ at every phase, including $\pi$.
 \end{lemma}
 \begin{proof}
-The first two claims are the definition of the image. Additive pathways lie in $\mathrm{span}\{U,V\}$, so a complement projection kills them. Bilinearity supplies the product of the gates.
-\end{proof}
-Posting and completion are the same event. Posting is the static predicate $a_v\ge\theta_{\rm comm}$. Completion is the first time that predicate becomes true. Theorem~\ref{thm:inter} is that temporal statement. It follows from the image geometry, not from a second definition.
+Let $b=v^\top M$, a row acting on the item space. If $b=0$, then $bz=0$ for every item and $a_v(z,\delta)=0$ for every phase. Conversely, suppose $a_v(z,\delta)=0$ for every item and phase. Since $g(0)=1$, this implies $bz=0$ for every $z$. Applying it to each coordinate basis vector shows that every entry of $b$ is zero.
 
-\begin{theorem}[Projection decides whether delayed alignment can finish]\label{thm:inter}
-Let the translated dictionary be the image of $\Tij\Dj$, and let delivered amplitude be $a_v=|v^{\top}\Tij\Dj x|\,g(\eta)$ with $\eta=\alpha+\Om\tau$. Communication into direction $v$ can be finished by delay and preference only if $v$ meets that image.
+The equality $b=0$ is also equivalent to $v$ being orthogonal to $\im M$: each vector in that image has the form $Mz$, and its inner product with $v$ is $bz$. For a fixed item, the exponential gate is positive at every finite $\kappa$ and every phase. Thus $|bz|g(\delta)>0$ if and only if $bz\ne0$. This fixed-item statement is weaker than saying that every item is deliverable in a supported readout.
+\end{proof}
+
+\begin{theorem}[Nonzero projection establishes modeled interregional communication]\label{thm:inter}
+Let $j$ and $i$ denote sender and receiver brain regions represented by the calibrated maps $D_j$ and $T_{ij}$. Put $M=T_{ij}D_j$. Consider an available item $z$, a unit receiver readout $v$, and the instantaneous isolated-path contribution
+\begin{equation}
+q_{i\leftarrow j,v}(z,\delta)=v^\top U_{ij}=g(\delta)v^\top Mz,\qquad
+ g(\delta)=e^{\kappa(\cos\delta-1)},\quad 0\le\kappa<\infty.
+\label{eq:communication}
+\end{equation}
+A fixed positive pathway weight is absorbed into $M$. Hold arrival phase, pathway map, and other receiver inputs fixed. Define communication through this pathway as a nonzero sender-dependent contribution to the receiver readout. Then:
 \begin{enumerate}[label=(\roman*),leftmargin=*]
-\item If $v$ misses the image, $a_v=0$ at every delay and every preference. Waiting, opening the gate, and shifting $\eta$ cannot create a coordinate the translation deleted.
-\item If $v$ meets the image, delay and preference act only through $\eta$. They finish communication at the first time $g(\eta)$ is large enough. A longer delay cancelled by a shifted preference does not change that time.
-\item If the offset is still outside the window, communication in that direction is unfinished. It finishes at the later hitting time of a move in arrival phase, not at the conduction time.
-\item A coordinate absent from both pathway images is not finished by either delayed pathway. It appears only in the cross term, after both pathways have aligned.
+\item If the item's readout projection $v^\top Mz$ is nonzero, communication from $j$ to $i$ occurs at every arrival phase, including $\pi$. Its magnitude is $a_v=|q_{i\leftarrow j,v}|$, bounded by
+\[
+e^{-2\kappa}|v^\top Mz|\le a_v\le |v^\top Mz|.
+\]
+\item For a source-content perturbation $z\mapsto z+\epsilon d$ at fixed phase, the receiver contribution changes by
+\begin{equation}
+q(z+\epsilon d,\delta)-q(z,\delta)=\epsilon g(\delta)v^\top Md.
+\label{eq:projectioncontrast}
+\end{equation}
+The contrast is exactly linear in the perturbation size $\epsilon$ at fixed phase. Thus a nonzero projected content contrast establishes a nonzero input--output effect in this model, rather than merely a similarity of regional representations.
+\item The pathway supports communication in readout $v$ for some content contrast if and only if $v^\top M\ne0$, equivalently $v\notin(\im M)^\perp$. If $v^\top M=0$, this pathway cannot communicate into that readout through any scalar phase gate.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(i) If $v$ is orthogonal to $\im(\Tij\Dj)$, then $v^{\top}\Tij\Dj x=0$ for every $x$, so the gate has nothing to scale. (ii) The only remaining factor is $g(\eta)$, and Eq.~\eqref{eq:obsphase} is constant on a ridge shift, so the crossing time is constant on that shift. (iii) A stationary miss keeps $g$ below the required value, so the first crossing cannot precede the intervention that moves $\eta$. (iv) Additive pathways lie in the span of their images. A complement coordinate stays zero until the bilinear term is nonzero, which requires both gates.
-\end{proof}
-This is the communication content of the projection. Dictionary alignment and phase alignment do different jobs. The projection decides whether a direction can be received at all. The delay decides when a receivable direction is finished. Neither substitutes for the other. Figure~\ref{fig:projection} is the check. The kernel stays at $0$. The image crosses $0.25$ only when the gate does. The right panel is the dictionary claim: a null translation stays at zero as the gate opens, and an exact map rises with the gate. These are identities of the generator, not neural measurements.
+For finite nonnegative $\kappa$, $-1\le\cos\delta\le1$ implies $-2\kappa\le\kappa(\cos\delta-1)\le0$. Exponentiating gives $0<e^{-2\kappa}\le g(\delta)\le1$. Multiplication by $|v^\top Mz|$ yields the magnitude bounds in (i). If that projection is nonzero, its product with a strictly positive gain is nonzero, including at $\delta=\pi$.
 
-\begin{figure}[htbp]\centering\includegraphics[width=.72\linewidth]{figure9.pdf}\caption{Checks of the projection and of dictionary translation. Left: the image follows the gate and crosses 0.25; the kernel stays at 0. Middle: the cross term is the product of the gates. Right: opening the gate does not restore a null translation.}\label{fig:projection}\end{figure}
+To prove (ii), hold the gate and map fixed and expand by linearity:
+\begin{align*}
+q(z+\epsilon d,\delta)-q(z,\delta)
+&=g(\delta)v^\top M(z+\epsilon d)-g(\delta)v^\top Mz\\
+&=\epsilon g(\delta)v^\top Md.
+\end{align*}
+For $\epsilon\ne0$ and $v^\top Md\ne0$, this is a nonzero receiver change. Other receiver contributions cancel from this contrast only under the stated matched-input assumption.
+
+For (iii), if $b=v^\top M$ is nonzero, choose $d=b^\top$. Then $bd=bb^\top=\|b\|_2^2>0$. Taking any nonzero perturbation size gives a nonzero source-content effect by (ii). If $b=0$, both the item contribution and every content contrast vanish, independent of the phase. The equivalence to $v\notin(\im M)^\perp$ follows from the image characterization proved in Lemma~\ref{prop:projection}. Communication here is this specified source-dependent contribution; no report threshold or empirical pathway identification is used in the proof.
+\end{proof}
+The theorem establishes communication between the two regional variables within the specified transfer model. It does not establish from regional activity alone that this pathway exists in a brain. Empirical application requires independently calibrated maps and a source-content contrast with matched arrival phase and other inputs. Nonzero projection of a particular item establishes its modeled delivery; structural support alone establishes only the existence of a deliverable contrast. Opposite phase attenuates communication, rather than abolishing it.
+
+\begin{corollary}[Communication and operational completion are distinct]\label{cor:completion}
+For a fixed projected magnitude $A_v=|v^\top Mz|$ available at receiver time $t_0$, assume a continuous gain trajectory $t\mapsto g(\delta(t))$. Define thresholded posting and completion by
+\begin{equation}
+t_v^*=\inf\{t\ge t_0:A_vg(\delta(t))\ge\theta\},\quad\theta>0,\qquad
+\inf\varnothing=\infty.\label{eq:completion}
+\end{equation}
+If $A_v<\theta$, completion is impossible even when Theorem~\ref{thm:inter} establishes nonzero communication. Otherwise the passing phases are exactly those of Proposition~\ref{prop:delivery}, and completion is their first attainment after $t_0$.
+\end{corollary}
+\begin{proof}
+If $A_v<\theta$, the bound $g\le1$ implies that the set in Eq.~\eqref{eq:completion} is empty, so its infimum is $\infty$. Otherwise Proposition~\ref{prop:delivery} characterizes exactly when $A_vg(\delta(t))\ge\theta$. The set of passing times is consequently the set of times at which the gate trajectory enters that feasible phase region.
+
+For the first-attainment claim, assume the gain trajectory $t\mapsto g(\delta(t))$ is continuous on $[t_0,\infty)$; a wrapped phase may jump at the branch cut while its gain remains continuous. The passing-time set $E$ is then closed relative to that interval, as the inverse image of $[\theta,\infty)$ under a continuous amplitude function. If $E$ is nonempty, its infimum $t^*$ is finite and at least $t_0$. Choose times $t_n\in E$ with $t^*\le t_n<t^*+1/n$. Then $t_n\to t^*$ and closedness implies $t^*\in E$. No earlier time belongs to $E$ by the definition of infimum. Hence the infimum is the first actual crossing. If $E$ is empty, completion is infinite, even when all instantaneous amplitudes are nonzero. Without gain continuity, an infimum need not be attained and should be called a crossing-time infimum rather than a first attained event.
+\end{proof}
+For nontrivial processing memory, apply the readout to Eq.~\eqref{eq:transfer}. Nonzero instantaneous projections can cancel under integration. A sufficient extension of Theorem~\ref{thm:inter}(i) is that $v^\top Mz(t-\tau-s)$ has one sign and magnitude at least $c>0$ throughout the processing support, with a normalized nonnegative kernel and positive fixed pathway weight $w$. Then $|v^\top U(t)|\ge wc e^{-2\kappa}>0$. This separates supported delivery from possible temporal cancellation.
+
+\begin{proposition}[Communication certified under translation uncertainty]\label{prop:robustcommunication}
+Let a calibrated estimate $\widehat M$ obey $\|M-\widehat M\|_2\le\epsilon_M$, with unit readout $v$ and fixed item $z$. Set
+\[
+\widehat A=|v^\top\widehat Mz|,\quad E=\epsilon_M\|z\|_2,
+\quad A_- =\max(0,\widehat A-E),\quad A_+=\widehat A+E.
+\]
+For every phase, the true amplitude satisfies
+\begin{equation}
+A_-g(\delta)\le a_v\le A_+g(\delta).\label{eq:robustcommunication}
+\end{equation}
+If $\widehat A>E$, communication is nonzero for every admissible map and every phase. For threshold $\theta>0$, $A_-g(\delta)\ge\theta$ certifies posting, whereas $A_+g(\delta)<\theta$ certifies its absence. Intermediate cases are unresolved by the uncertainty bound.
+\end{proposition}
+\begin{proof}
+Write $E_M=M-\widehat M$. The operator-norm assumption and $\|v\|_2=1$ give
+\[
+|v^\top E_Mz|\le\|v\|_2\|E_Mz\|_2\le\epsilon_M\|z\|_2=E.
+\]
+The triangle inequality gives $|v^\top Mz|\le|v^\top\widehat Mz|+E=\widehat A+E$. Its reverse form gives $|v^\top Mz|\ge\widehat A-E$. Combining the latter with nonnegativity of a magnitude gives $A_-\le|v^\top Mz|\le A_+$. Multiplication by the positive gate proves Eq.~\eqref{eq:robustcommunication}.
+
+If $\widehat A>E$, then $A_->0$ and $a_v\ge A_-e^{-2\kappa}>0$ for every admissible map and phase. If $A_-g(\delta)\ge\theta$, every admissible amplitude is at least the threshold. If $A_+g(\delta)<\theta$, every admissible amplitude is strictly below it. These are sufficient certificates; when neither inequality holds, the bounds alone do not decide posting. A bound straddling the threshold does not assert that both outcomes are attainable by admissible maps, only that neither has been excluded by these inequalities.
+\end{proof}
+This result turns a near-zero fitted projection into a calibrated decision with uncertainty. A small estimated coefficient alone cannot establish structural absence. The bound is conditional on valid map uncertainty; it does not supply that uncertainty from the same confirmatory outcomes. If $A_->0$, the exact window of Proposition~\ref{prop:delivery} applied to $A_-$ gives phases with certified thresholded delivery. Applying it to $A_+$ gives an outer window of possible delivery. Their gap is an explicit target for better calibration.
+
+\begin{proposition}[Two stages of communication]\label{prop:twostage}
+A readout has either no structural support ($v^\top M=0$), or support for at least one item ($v^\top M\ne0$). For a supported fixed item, $a_v>0$ at every phase and gain continuously changes its magnitude from $A_ve^{-2\kappa}$ to $A_v$. Successful thresholded delivery is a separate event and may fail at every phase.
+\end{proposition}
+\begin{proof}
+Let $b=v^\top M$. Either this row is zero or it is not; these cases are exhaustive and disjoint. In the zero case Lemma~\ref{prop:projection} shows that every item has zero amplitude. In the nonzero case choosing $z=b^\top$ gives $bz=\|b\|_2^2>0$, establishing support for at least one item.
+
+Fix any item with $A_v=|bz|>0$. Theorem~\ref{thm:inter} gives $A_ve^{-2\kappa}\le a_v\le A_v$, so all phases have nonzero delivery. The gate is a continuous function on the phase circle and attains its minimum at opposite phase and maximum at zero; multiplication by $A_v$ gives the stated modulation range. Passing a positive threshold is governed instead by Corollary~\ref{cor:completion}. For example any threshold greater than $A_v$ is never passed, despite delivery at every phase. Thus support, delivery magnitude, and completion are separate statements.
+\end{proof}
+The projection stage establishes modeled sender-to-receiver delivery for a nonzero projected item and identifies which content contrasts can affect the receiver. Alignment specifies its amplitude. Thresholded posting and successful report require additional conditions. The gate has no exact closed phase at finite $\kappa$.
+
+\paragraph{When communication becomes progressively less laggy.}
+For two finite completion times, a measurable lag is $|t_p^*-t_c^*|$. Support alone imposes no sign on its change. For a monotone intervention $\delta_p(t)=\delta_0-qt$ starting above a feasible half-width $\vartheta$, $q>0$, first crossing is $(\delta_0-\vartheta)/q$ when this is after availability and before a wrap. Increasing $q$ reduces this crossing time. It reduces lag relative to a fixed earlier $t_c^*$ only while $t_p^*\ge t_c^*$. Beyond that point the absolute lag increases. An impossible threshold has infinite completion time, for which a two-path lag is not a finite measurement.
+
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure_delivery.pdf}\caption{Structural support, positive gain, and threshold feasibility are distinct. The gate remains positive at opposite phase. A nonzero projection can remain below threshold. First crossing depends on the specified phase trajectory.}\label{fig:projection}\end{figure}
+
+\input{reciprocal.tex}
+\input{nervous_network.tex}
 
 \subsection{The sensitivity prediction}\label{sec:sdt}
-The decision variable is $X\mid s=r(sh\Content/2+\varepsilon_u)+\varepsilon_d$, with upstream noise inside the gate and downstream noise outside it. Then $d'(r)=rh\Content/\sqrt{r^2\sigma_u^2+\sigma_d^2}$, which increases with $r$ only if downstream noise is present. The confirmatory prediction is $\beta_{\Content R}>0$ in a sensitivity model, with criterion fit separately. A criterion shift does not satisfy it. No sample-size recommendation is made.
+Two complementary questions now require different models. A signal-detection readout connects delivered content to behavioral sensitivity. A bilinear pathway model, introduced below, asks whether joint inputs generate receiver directions that additive transfer cannot reach. The sensitivity result does not imply the interaction-rank result, and the interaction-rank result does not by itself imply a behavioral benefit.
 
-The interaction is the completion clause for a coordinate outside both images. It is not a second communication theory.
-Let $U(t),V(t)$ be pathway outputs from Eq.~\eqref{eq:transfer}, both translated into calibrated receiver coordinates. Let $\Bmap$ be a fixed bilinear map with output in those coordinates. A common special case is the separable kernel $k(s,q)=\delta(s-q)\kappa(u\odot v)$ for equally dimensional inputs. A finite-memory interaction is
+An auxiliary Gaussian signal-detection model specifies how delivery affects a behavioral measure. For stimulus class $s\in\{-1,1\}$,
+\begin{align}
+X\mid s&=r\left(shC/2+\underbrace{\varepsilon_u}_{\text{upstream noise}}\right)
++\underbrace{\varepsilon_d}_{\text{downstream noise}},\notag\\
+d'(r,C)&=\frac{rhC}{\sqrt{r^2\sigma_u^2+\sigma_d^2}}.\label{eq:sensitivity}
+\end{align}
+where $C\ge0$ is content magnitude, $r\ge0$ is channel gain, $h\ge0$ is calibrated content efficacy, and the independent zero-mean Gaussian noises $\varepsilon_u,\varepsilon_d$ have variances $\sigma_u^2,\sigma_d^2$.
+\begin{corollary}[Conditional content-by-gain prediction]\label{cor:contentrouting}
+Under Eq.~\eqref{eq:sensitivity}, for $hC>0$ and $\sigma_d>0$,
+\[
+\frac{\partial d'}{\partial r}=\frac{hC\sigma_d^2}{(r^2\sigma_u^2+\sigma_d^2)^{3/2}}>0,
+\quad
+\frac{\partial^2d'}{\partial C\partial r}=\frac{h\sigma_d^2}{(r^2\sigma_u^2+\sigma_d^2)^{3/2}}>0.
+\]
+For a null efficacy $h=0$ both are zero. With only upstream noise of positive variance, sensitivity is constant for $r>0$.
+\end{corollary}
+\begin{proof}
+Let the two Gaussian noises be independent of one another and of class $s$, with zero means and variances $\sigma_u^2$ and $\sigma_d^2$. At fixed $r$, $X\mid s$ is Gaussian with mean $rshC/2$ and common variance $V(r)=r^2\sigma_u^2+\sigma_d^2$. The difference of the two class means is $rhC$. Dividing it by the common standard deviation gives Eq.~\eqref{eq:sensitivity} whenever $V(r)>0$.
+
+Differentiate $rhC V(r)^{-1/2}$ using the product and chain rules:
+\begin{align*}
+\partial_r d'&=hC V^{-1/2}-r^2hC\sigma_u^2V^{-3/2}\\
+&=hC[V-r^2\sigma_u^2]V^{-3/2}
+=hC\sigma_d^2V^{-3/2}.
+\end{align*}
+Because $V$ is independent of content magnitude $C$, differentiating this expression with respect to $C$ gives $h\sigma_d^2V^{-3/2}$. With positive downstream noise, the denominator is positive even at $r=0$, and the claimed signs follow. If $h=0$, both derivatives are zero.
+
+If $\sigma_d=0$ but $\sigma_u>0$, then for $r>0$, $d'=rhC/(r\sigma_u)=hC/\sigma_u$, independent of gain. At $r=0$ this pure-upstream model is degenerate; the displayed ratio is undefined rather than a positive-gain sensitivity result. These conclusions use the Gaussian readout and fixed noise variances, not just monotonicity of delivered amplitude.
+\end{proof}
+This prediction requires the readout and noise assumptions. Geometry alone, or monotonicity alone, does not entail a positive global regression coefficient $\beta_{CR}$. A route aggregate $R$ must be calibrated to the tested gain before substitution. Saturation can reverse a mixed derivative despite increasing sensitivity in each input. A nonsignificant interaction does not reject structural projection; a well-powered interval excluding a preregistered meaningful effect can reject the complete specified behavioral model.
+
+The next model concerns receiver geometry before a behavioral readout is chosen. Its output can be used by a separately specified decision model, but substituting it into the scalar Gaussian readout would require new distribution and noise assumptions. Let translated pathway outputs $U,V$ share receiver coordinates. A fixed bilinear map $\Bmap$ into the receiver feature space, an integrable scalar memory kernel $k(s,q)$, and a real interaction coefficient $\chi$ define
 \begin{equation}
-I(t)=\chi\int_0^\infty\!\int_0^\infty k(s,q)\Bmap(U(t-s),V(t-q))\,ds\,dq,\quad
- y(t)=U(t)+V(t)+I(t)+\epsilon(t).\label{eq:mixed}
+I(t)=\chi\int_0^\infty\!\int_0^\infty k(s,q)\Bmap(U(t-s),V(t-q))\,ds\,dq,
+\quad y(t)=U(t)+V(t)+I(t)+\epsilon(t).\label{eq:mixed}
 \end{equation}
-The integrable kernel $k$ can represent different processing windows and temporal conjunctions. Conduction is already in $U,V$; $s,q$ are additional interaction memory, not duplicate conduction delays. This is a constrained second-order input--output model in the tradition of nonlinear system identification \citep{korenberg1996}, not a deduction of consciousness or a newly discovered universal neural law. No higher-order term is inferred without a separately specified model and data.
-
-The pair $(\Bmap,k)$ is not identified from $y$ alone: for any invertible linear reparameterization of the interaction subspace, $(\Bmap,k)$ and $(\Bmap',k')$ produce the same $I(t)$. The factorial contrast in Proposition~\ref{prop:contrast} tests for the presence of a cross-path contribution, not for $\Bmap$ or $k$. Locating the interaction requires additional interventions or recordings.
+Here $\epsilon(t)$ is additive observation error with a fixed conditional mean across the contrasted conditions. For example, $k(s,q)=k_1(s)k_2(q)$ is a scalar separable memory. Conduction is already included in $U,V$. This is a constrained second-order input--output model \citep{korenberg1996}. A projection $Q$ annihilating $\im M_1+\im M_2$ removes the additive terms, leaving $Qy=QI+Q\epsilon$. A new coordinate requires a nonzero projected bilinear output; it does not arise automatically from alignment. Off-phase gates can still produce a nonzero interaction, and memory can combine inputs from different times.
+The pair $(\Bmap,k)$ is ambiguous at least under $\Bmap\mapsto c\Bmap$, $k\mapsto k/c$, $c\ne0$. Fixing a normalization or independently measuring a component is necessary. An arbitrary invertible output transformation is not observationally equivalent without compensating the measurement map.
 
 \begin{proposition}[Cross-path factorial contrast]\label{prop:contrast}
-Hold content, kernels, maps, and noise mean fixed. Scale pathway signals independently to $aU$ and $bV$, $a,b\in\{H,L\}$. For the conditional mean of Eq.~\eqref{eq:mixed},
+Hold content, kernels, maps, and noise mean fixed. Independently scale the two inputs by $a,b\in\{H,L\}$. Then
 \begin{equation}
 y_{HH}-y_{HL}-y_{LH}+y_{LL}
 =\chi(H-L)^2\int\!\int k(s,q)\Bmap(U(t-s),V(t-q))\,ds\,dq.\label{eq:contrast}
 \end{equation}
 \end{proposition}
 \begin{proof}
-The two additive pathways cancel. Bilinearity gives interaction coefficient $H^2-HL-LH+L^2=(H-L)^2$.
+Denote the unscaled interaction integral by $J(t)=\int\!\int k(s,q)\Bmap(U(t-s),V(t-q))\,ds\,dq$, assumed to exist. For constant scales $a,b$, bilinearity gives $\Bmap(aU,bV)=ab\Bmap(U,V)$ at every integration point. Thus the interaction integral is $abJ(t)$. With fixed mean noise $m(t)$, each condition has mean $y_{ab}(t)=aU(t)+bV(t)+\chi abJ(t)+m(t)$.
+
+The alternating four-condition sum gives coefficients $H-H-L+L=0$ on $U$, $H-L-H+L=0$ on $V$, and $1-1-1+1=0$ on the fixed noise mean. Its interaction coefficient is $H^2-HL-LH+L^2=(H-L)^2$. This proves Eq.~\eqref{eq:contrast}. The same cancellation removes any separable terms $f(aU)+j(bV)$, since each is added once and subtracted once for each scale. A joint nonlinear term need not factor or cancel, so the identity does not localize the anatomical interaction.
 \end{proof}
-Independent univariate nonlinearities of each scaled pathway also cancel if they remain separable. A joint nonlinear readout need not cancel and can reproduce the same contrast. Thus this test separates a cross-path term from separable alternatives under matched inputs, not its anatomical locus or experiential meaning. The contrast vanishes for $\chi=0$ or a null translated interaction direction and changes sign when one decoded feature is reversed. If translated $U$ is zero over the entire kernel support, no bilinear term involving that pathway can restore it. Other inputs or memories containing an earlier nonzero feature are different models.
+Separable univariate nonlinearities also cancel. A joint nonlinear downstream readout can produce the same contrast. The test distinguishes cross-path dependence from separable alternatives under matched inputs, not its anatomical origin or experiential meaning.
+
+\paragraph{Why rank is the relevant quantity.} A cross-path contrast can be nonzero while remaining in directions already carried by either pathway. To test whether an interaction adds a distinct receiver direction, first remove the additive space and then count independent remaining directions. The following proof establishes exactly what that count measures.
+
+\begin{proposition}[How much new receiver content an interaction can add]\label{prop:innovation}
+Let two independently controllable translated spaces be $S_1=\im M_1$ and $S_2=\im M_2$ in $\R^n$, with dimensions $r_1,r_2$. Put $S=S_1+S_2$, $A=[M_1\ M_2]$, and let $Q$ project orthogonally onto $S^\perp$. For orthonormal bases $p_a$ of $S_1$ and $q_b$ of $S_2$, form the columns $C_B=[\Bmap(p_a,q_b)]_{a,b}$. With a fixed nonzero coefficient $\chi$ and unrestricted independent inputs, the linear span of possible outputs $u+v+\chi\Bmap(u,v)$ is $S+\im C_B$. The number of added independent receiver directions is
+\begin{equation}
+d_B=\rank[A\ C_B]-\rank A=\rank(QC_B)
+\le\min(n-\dim S,r_1r_2).\label{eq:innovationrank}
+\end{equation}
+Complement factorial contrasts spanning all independent basis pairs recover the effective added span, under the fixed-input conditions of Proposition~\ref{prop:contrast}.
+\end{proposition}
+\begin{proof}
+Let $L$ be the linear span of all possible outputs and let $W=S+\im C_B$. Express $u=\sum_a x_ap_a$ and $v=\sum_b y_bq_b$. Bilinearity gives $\Bmap(u,v)=\sum_{a,b}x_ay_b\Bmap(p_a,q_b)$, so every output lies in $W$ and $L\subseteq W$.
+
+For the reverse inclusion, unrestricted independent inputs include $(u,0)$, $(0,v)$, and $(0,0)$. Their outputs are $u$, $v$, and zero, so $S\subseteq L$. Subtract the two single-input outputs from a joint output:
+\[
+y(u,v)-y(u,0)-y(0,v)=\chi\Bmap(u,v).
+\]
+This difference belongs to $L$, which is a linear space. Since $\chi\ne0$, each basis-product vector $\Bmap(p_a,q_b)$ belongs to $L$. Therefore $\im C_B\subseteq L$ and $W\subseteq L$, proving equality.
+
+The columns of $[A\ C_B]$ span $W$, while those of $A$ span $S$. The restriction of $Q$ to $W$ has kernel $S$: a vector in $W$ is killed exactly when it lies in $S$. Its image is $\im(QC_B)$, because $Q$ kills $A$ and every remaining column is a projected product. Rank--nullity on $W$ therefore yields $\dim W-\dim S=\rank(QC_B)$, establishing both rank equalities. The projected products lie in the $(n-\dim S)$-dimensional complement and are spanned by $r_1r_2$ columns, proving the upper bound.
+
+Finally, Proposition~\ref{prop:contrast} applied to each basis pair and followed by $Q$ gives $\chi(H-L)^2Q\Bmap(p_a,q_b)$. For $H\ne L$ this is a common nonzero scalar multiple of each projected product. Their span equals $\im(QC_B)$, regardless of the value of that nonzero scalar. This identifies an effective output span across conditions, not each vector's attainability in a single condition or the location of the nonlinearity.
+\end{proof}
+The rank statement is unchanged if other bases are used: changing either basis multiplies the basis-product representation by invertible transformations and preserves its column span. The result concerns a linear span across input pairs and their contrasts. A single stimulus pair may excite only one direction; not every vector in that span need be attainable in one trial. It gives a concrete prediction beyond detecting a nonzero interaction: calibrated contrasts can test whether content occupies receiver directions that neither additive pathway reaches. A joint nonlinear receiver readout remains an alternative anatomical explanation. Restricted content co-variation, uncalibrated measurement nonlinearities, and memory cancellation must be excluded before interpreting the effective rank.
+
+\input{rank_sensitivity.tex}
 
 \subsection{A slower trace is a separate postulate}\label{sec:plastic}
-On an item presentation, a minimal learning rule is
+At presentation $n=0,1,\ldots$, let $T_n$ be the current linear translation, $u_n$ the sender teaching feature, $v_n$ its receiver target, $r_n\ge0$ its calibrated gain, and $\varepsilon>0$ the learning step size. With independently assigned learning-opportunity flag $\ell_n\in\{0,1\}$, retain
 \begin{equation}
-T_{n+1}=T_n+\varepsilon\ell_n r_n(v_n-T_n u_n)u_n^\top,\quad \ell_n\in\{0,1\}.\label{eq:plastic}
+T_{n+1}=T_n+\varepsilon\ell_n r_n(v_n-T_nu_n)u_n^\top.\label{eq:plastic}
 \end{equation}
-For a repeated fixed pair, its residual contracts when $0<\varepsilon\ell_n r_n\|u\|^2<2$. With $\ell_n=0$ the map is frozen even if content transfer changes. The synthetic access--trace split is therefore built into the generator; it does not validate a synaptic rule. Activity-only learning and ungated turnover are required empirical comparators. Behavior alone does not identify a synapse \citep{dudai2015}.
+For a repeated pair the residual contracts when $0<\varepsilon\ell_nr_n\|u_n\|^2<2$. If $\ell_n=0$, the map is frozen by construction. An access--trace split in this generator does not validate a synaptic rule. Activity-only learning and ungated turnover remain comparators; behavior alone does not identify a synapse \citep{dudai2015}.
+
+\paragraph{Connection to the network.} On a learned edge, take $L_{ij}^{(n)}=r_{ij}T_n$ in the calibrated sender-feature coordinates, with gain $r_{ij}$ held fixed. These are the edge maps of Theorem~\ref{thm:network}, frozen during each response window and updated between teaching blocks. Corollary~\ref{cor:unexcited} implies that training restricted to $S$ leaves this edge's action on $S^\perp$ unchanged. The network stability certificate must be checked again after an update. Other learned edges or upstream rerouting can still change a receiver response; edge-level invariance is not invariance of every network readout.
+
+\paragraph{What is being proved about learning.} The teaching-pair update is a model assumption. The result below derives its mean behavior and separates errors in trained directions from errors in directions never excited. Mean contraction is deliberately distinguished from stability of individual learning trajectories.
+
+\begin{proposition}[Excitation determines which translation errors can be learned]\label{prop:learning}
+Assume a fixed target translation $T_*$ and exact teaching pairs $v_n=T_*u_n$. Let $(u_n,\ell_n,r_n)$ be identically distributed independent draws, independent of the current $T_n$, with $\ell_n r_n\ge0$, $\mathbb E[\ell_n r_n\|u_n\|^2]<\infty$, and $\mathbb E\|T_0\|_F<\infty$. Define the gain-weighted excitation matrix $G=\mathbb E[\ell_n r_nu_nu_n^\top]$. Under Eq.~\eqref{eq:plastic},
+\begin{equation}
+\mathbb E[T_n-T_*]=(\mathbb E[T_0]-T_*)(I-\varepsilon G)^n.
+\label{eq:meanlearning}
+\end{equation}
+On $\im G$, mean translation error contracts if $0<\varepsilon<2/\lambda_{\max}(G)$; its components along $\Ker G$ remain unchanged. If $G=0$, no mean learning occurs.
+\end{proposition}
+\begin{proof}
+Set $F_n=T_n-T_*$. Substituting the exact teacher $v_n=T_*u_n$ into Eq.~\eqref{eq:plastic} gives
+\[
+F_{n+1}=F_n-\varepsilon\ell_nr_nF_nu_nu_n^\top
+=F_n(I-\varepsilon\ell_nr_nu_nu_n^\top).
+\]
+The current teaching draw is independent of $F_n$. Conditional expectation therefore gives $\mathbb E[F_{n+1}\mid F_n]=F_n(I-\varepsilon G)$. The finite weighted second moment makes $G$ finite. Together with $\mathbb E\|F_0\|_F<\infty$, it also makes each $F_n$ integrable by induction, since the expected norm of the independent right multiplier is finite. Taking expectations and iterating proves Eq.~\eqref{eq:meanlearning}.
+
+For any vector $x$, $x^\top Gx=\mathbb E[\ell_nr_n(u_n^\top x)^2]\ge0$. Thus $G$ is symmetric positive semidefinite and has an orthogonal diagonalization $G=P\operatorname{diag}(\lambda_1,\ldots,\lambda_m)P^\top$, with $\lambda_j\ge0$. The error on eigenvector $p_j$ evolves as
+\[
+\mathbb E[F_n]p_j=(1-\varepsilon\lambda_j)^n\mathbb E[F_0]p_j.
+\]
+If $0<\varepsilon<2/\lambda_{\max}(G)$ and $\lambda_j>0$, then $|1-\varepsilon\lambda_j|<1$, proving geometric mean contraction on each excited direction. On $\im G$, the largest such modulus gives a uniform contraction factor less than one. If $\lambda_j=0$, the multiplier is one and that mean-error component is unchanged. If $G=0$, all components are unchanged. This expectation argument proves neither sample-path nor mean-square convergence, which require additional stability conditions.
+\end{proof}
+The mean recursion is a standard linear stochastic-approximation calculation \citep{benveniste1990,kushner2003}. Its role here is to describe translation errors in calibrated content coordinates, rather than to claim new convergence mathematics. This extends the fixed-pair contraction to a content ensemble. Within the learning postulate, receptive gain changes learning speed and content sampling determines which errors can be corrected. It does not establish synaptic plasticity or convergence of individual trajectories: mean-square stability needs stronger assumptions. The empirical prediction is correspondingly conditional: training confined to one calibrated content subspace should not repair errors in an unexcited orthogonal subspace under this rule. Changing teaching signals or the learning rule is a separate mechanism.
+
+\paragraph{Alternative learning rules.} Mean contraction uses the error-correcting update, independence of the current teaching draw from the current map, and the positive-semidefinite weighted excitation matrix $G$. Hebbian updates change the error recursion; weight decay changes even unexcited weights. State-dependent or correlated teaching draws can invalidate the fixed-$G$ expectation factorization. Their effects require a new derivation rather than the present contraction formula. Even correlated teaching cannot alter an orthogonal direction if its update retains the outer-product factor $u_n^\top$ and every $u_n$ stays in the same subspace. Corollary~\ref{cor:unexcited} is therefore specific to the stated update geometry, not a universal rule for biological learning.
+
+\begin{corollary}[Training cannot repair an unexcited content direction]\label{cor:unexcited}
+Under the learning update, suppose all teaching inputs $u_n$ lie almost surely in a fixed subspace $S$. For every $w\in S^\perp$, $T_nw=T_0w$ for every iteration almost surely. In particular, with a fixed target $T_*$, the error $(T_n-T_*)w$ remains unchanged. This statement is stronger than invariance of the mean error.
+\end{corollary}
+\begin{proof}
+On any realization with all inputs in $S$, $u_n^\top w=0$. Right-multiply Eq.~\eqref{eq:plastic} by $w$: its update term is $\varepsilon\ell_nr_n(v_n-T_nu_n)(u_n^\top w)=0$. Hence $T_{n+1}w=T_nw$, and induction gives $T_nw=T_0w$. The countable intersection of the probability-one events $u_n\in S$ has probability one, which justifies the claim for every iteration. Subtracting the fixed $T_*w$ gives error invariance.
+\end{proof}
+
+\begin{example}[A content ensemble with one unlearnable direction]\label{ex:learning}
+Take two calibrated sender coordinates, target $T_*=I_2$, and initial map $T_0=\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$. Teach $u=\pm e_1$ with equal probabilities, with opportunity $\ell=1$, fixed gain $r=1/2$, exact target $v=T_*u$, and step size $\varepsilon=0.4$. Then $G=\operatorname{diag}(1/2,0)$ and
+\begin{equation}
+\mathbb E[T_n-T_*]=
+\begin{pmatrix}-0.8^n&1\\0.8^n&-1\end{pmatrix}.\label{eq:learningexample}
+\end{equation}
+The first column approaches its target, but the second remains wrong: $T_ne_2=e_1$ whereas the target is $e_2$. No number of these presentations repairs that error. With the same gain and equal-probability training on $\pm e_1,\pm e_2$, instead $G=I_2/4$ and $\mathbb E[T_n-T_*]=0.9^n(T_0-T_*)$. Both mean errors now contract. Broader content excitation, rather than additional repetitions of the first content alone, changes which directions are learnable. Figure~\ref{fig:learningexample} shows these mean-error trajectories; they are exact consequences of the teaching model.
+\end{example}
+\begin{figure}[htbp]\centering\includegraphics[width=.88\linewidth]{figure_learning_example.pdf}\caption{Worked learning example. Restricted teaching repairs only the excited column. Broader teaching contracts both columns in mean. Each initial column-error norm is $\sqrt{2}$. Curves are norms of the mean column errors, not mean-square or individual-trajectory stability claims.}\label{fig:learningexample}\end{figure}
 
 \section{Synthetic checks and competing predictions}\label{sec:simulation}
-All outputs use fixed seeds. Secondary marker, ordering, and serial-path checks are in the supplement. No idea-network analysis is included.
-
-\begin{table}[htbp]\centering\caption{Scope of the implemented analyses.}\label{tab:checks}
-\begin{tabular}{@{}p{.26\linewidth}p{.68\linewidth}@{}}\toprule
-Category & Implementation and limitation\\\midrule
-Consistency & Ridge, rank, translation factorization, fidelity bound, factorial contrast, imposed trace split, and the rank-one projection check in Figure~\ref{fig:projection}.\\
-Parameter recovery & Coupling with exact features; gate parameters from stylized sensors; validation-selected interaction lags; two-frequency and chirp delay recovery in Figure~\ref{fig:escape}.\\
-Robustness & Matched observation ablations; upstream and downstream noise.\\
-Restricted comparison & Additive, bilinear, flexible quadratic, and delayed readouts; gate, constant, and Fourier predictors.\\
-Not claimed & Unique neural generator identification, or a sample-size recommendation.\\
-Proposed, not run & Behavioral sensitivity model, localization protocol, and a biological phase intervention.\\\bottomrule
-\end{tabular}\end{table}
+\subsection{Reciprocal projection and latency checks}\label{sec:reciprocal-checks}
+The new fixed-gate examples are implemented in \texttt{simulate\_reciprocal.py}, with all amplitudes and event times saved in \texttt{reciprocal\_results.json}. The invariant-channel example reaches threshold 0.34 at 78 ms, compared with a direct arrival at 18 ms; neither the reverse-path removal nor a threshold equal to the asymptotic limit produces finite completion. Two nonzero diagonal maps have a zero item-specific return. Compensating the two edge delays by 4 ms and $-2$ ms preserves the complete 8 Hz carrier response to within $9\times10^{-17}$, while moving onset and echo times. The independent verifier additionally compares the matrix echo series with direct time-stepped recurrence for 100 random stable map pairs, checks signed cancellation, and verifies the threshold regimes against a separately calculated partial sum. These checks establish implementation and conditional predictions; parameters are supplied, not recovered from neural data.
+The supplement gives equations, seeds, trial counts, exact feature sets, and executable checks. The revised experiments and original supplied simulations are separately labeled. Identity checks test implementation; recovery and rival comparisons test statistical consequences within the stated synthetic designs.
 
 \subsection{Delayed dictionaries and interaction memory}\label{sec:delayresults}
-A translated two-dimensional signal is delayed by known conduction and processing and combined by a 10~ms by 30~ms product. Validation selects those lags. Untouched-test MSE is \DelayAdd{} additive, \DelayInstant{} instantaneous, \DelayFull{} delayed bilinear, and \DelayFlexible{} for a quadratic that excludes that product. The factorial contrast matches Eq.~\eqref{eq:contrast} to $1.7\times10^{-16}$. Maps and kernels were supplied, not recovered. The plot is Supplementary Figure~S5. The factorial agreement to $1.7\times10^{-16}$ confirms the code implements Eq.~\eqref{eq:contrast}. The informative recovery result is the coverage drop: exact features cover at \ChiCoverageTrue{}, and feature noise of SD 0.15 covers at \ChiCoverageEst{}. The plot is Supplementary Figure~S6.
+A comparator that includes the generating delayed product predicts almost as well as the delayed bilinear model. The experiment therefore demonstrates the effect of available features on prediction, rather than unique mechanism identification.
+The supplied delayed generator uses 5 ms sampling and disjoint chronological training, validation, and test partitions. Validation selects the imposed 10 ms and 30 ms interaction lags. A rerun gives test MSE 0.001907 for an additive model, 0.002017 for an instantaneous bilinear model, 0.002062 for an instantaneous quadratic excluding the delayed product, 0.000415 for the delayed bilinear model, and 0.000418 for a quadratic including that same delayed product. Thus the apparent advantage depends on the rival's features; a flexible model containing the generating term predicts equally well. Maps and kernels are supplied. The factorial identity agrees to $1.7\times10^{-16}$. It confirms implementation, not biological mechanism.
+
+\paragraph{Uncertainty of the prediction comparison.} A new comparison reruns the complete generator, validation selection, refitting, and untouched test evaluation in 300 independent series (seed 402600). Every series contains 900 samples; the usable partitions have 500 training, 150 validation, and 220 test samples. Models are paired within each realization, so correlated samples within a series are not treated as independent inferential replicates. The difference is rival MSE minus delayed-predictor MSE. Table~\ref{tab:mse-ci} reports its mean and pointwise Student-$t$ 95\% interval across realizations; four two-sided tests are adjusted by Holm's method. Lag selection recovered the generating pair in all 300 realizations.
+
+\input{mse_comparison_table.tex}
+The mean advantage over the quadratic containing the delayed product is $1.30\times10^{-6}$, with interval $[0.94,1.65]\times10^{-6}$. It is statistically detectable in this Monte Carlo experiment but approximately three orders of magnitude smaller than the advantage over feature-omitting rivals. No practical-equivalence test or neural population inference is claimed. The uncertainty describes expected prediction risk under this synthetic generator, not an empirical confidence interval for a biological mechanism.
+
+\subsection{Nervous-network arrival and dispersion checks}\label{sec:nervous-checks}
+The added verifier uses seed 6102026. Across 100 independently generated four-population networks with two features per population, a direct method-of-steps implementation agrees with an independently iterated retarded-operator series to maximum absolute error $8.9\times10^{-16}$. Each edge has a nonnegative normalized three-point processing measure and a positive discrete conduction delay. Randomized checks test the dispersion and signed threshold bounds in 2,000 cases each. The 8 ms route in Figure~\ref{fig:nervous-network} is null for the tested item; a supported detour first appears at 12 ms. Opposing simultaneous routes cancel despite their nonzero individual coefficients. With a shared 15 ms processing mean, uniform half-widths of 2 and 10 ms give 40 Hz temporal magnitudes 0.958 and 0.234. These numbers check the specified operators and bounds. They do not estimate axonal speeds or population maps from neural data. Supplement S19 specifies the complete reproduction contract.
 
 \subsection{Coupling recovery with matched observed features}\label{sec:recovery}
-Over \ChiNReal{} realizations with exact features, coupling at truth 0.6 recovers as \ChiMean{} (SD \ChiSD{}). Exact-feature intervals cover at \ChiCoverageTrue{}. Feature noise of SD 0.15 drops coverage to \ChiCoverageEst{}. Null coupling recovers \NullMean{}. Test MSE is \MixedAdd{} additive, \MixedFull{} bilinear, and \MixedQuad{} quadratic. The flexible model contains the imposed term, so prediction is not identification. The plot is Supplementary Figure~S6.
+The original exact-feature experiment covered truth in 52 of 60 nominal 95\% intervals. Correlation between included regressors is already accounted for by OLS covariance and is not, by itself, a valid explanation of undercoverage. Sixty realizations cannot precisely estimate coverage, and no causal diagnostic is claimed for the original discrepancy.
+A revised experiment uses 2,000 independent realizations, 500 observations per realization, true coupling 0.6, and Gaussian residual SD 0.02. The mean coupling estimate is 0.59936 (between-run SD 0.01369). Normal intervals cover in 1,897/2,000 runs (94.85\%) and Student-$t$ intervals in 1,900/2,000 (95.00\%). With independent feature noise SD 0.15, nominal Student-$t$ coverage is 47/2,000 (2.35\%) and the coupling mean falls to 0.33564. This is an errors-in-variables failure of the naive fitted model.
+A 2,000-resample pairs bootstrap on the first 60 exact-feature realizations covers 57/60 (95\%; Wilson interval 86.30--98.29\%). Its small number of coverage trials does not establish superiority over analytic intervals, which also cover 57/60 on that subset. No unrun approximate bootstrap coverage is reported.
+
+\begin{figure}[htbp]\centering\includegraphics[width=.9\linewidth]{figure_coverage.pdf}\caption{Revised interval experiment. Exact measured features support nominal coverage under the correct Gaussian regression model; adding feature error makes the naive estimator biased and its intervals severely misleading.}\label{fig:coverage}\end{figure}
 
 \section{Practical recovery under source mixing}\label{sec:practical}
-Stylized 8~Hz sensors, sampled at 250~Hz, are passed through an ideal 6--10~Hz cutoff. This is not a lead-field model. At the scripted noise levels, clean 10~dB phase RMSE is \CleanTenRmse{}~rad with $\widehat\kappa=\CleanTenKappa$; mixing at 0~dB is \MixZeroRmse{}~rad, $\widehat\kappa=\MixZeroKappa$; common drive at 0~dB is \DriveZeroRmse{}~rad, $\widehat\kappa=\DriveZeroKappa$; both are \MixdriveZeroRmse{}~rad, $\widehat\kappa=\MixdriveZeroKappa$. The harmonic-alone cell matches clean 0~dB because the filter removes 16~Hz. An alternative generator $y=0.55+0.35\cos(2\delta)+\zeta$ prefers the gate over a constant in \FalseConst/24 runs and over Fourier in \FalseFourier/24. Mean MSEs are \AltGate{}, \AltConst{}, and \AltFourier{}. Structural identifiability does not imply recovery from a sensor mixture. Mixing plus common drive moves fitted concentration from about \CleanTenKappa{} to about \MixdriveZeroKappa{}. The ideal 6--10~Hz filter removes the imposed harmonic and is not a lead field. The plot is Supplementary Figure~S7.
+Stylized 8~Hz sensors, sampled at 250~Hz, are passed through an ideal 6--10~Hz cutoff. This is not a lead-field model. At the scripted noise levels, clean 10~dB phase RMSE is \CleanTenRmse{}~rad with $\widehat\kappa=\CleanTenKappa$; mixing at 0~dB is \MixZeroRmse{}~rad, $\widehat\kappa=\MixZeroKappa$; common drive at 0~dB is \DriveZeroRmse{}~rad, $\widehat\kappa=\DriveZeroKappa$; both are \MixdriveZeroRmse{}~rad, $\widehat\kappa=\MixdriveZeroKappa$. The imposed harmonic is at 16~Hz, outside the ideal 6--10~Hz analysis band. The filter therefore removes it completely, reducing the harmonic-alone condition to clean 0~dB. This is a property of this filter, not evidence that harmonics are generally harmless. An alternative generator $y=0.55+0.35\cos(2\delta)+\zeta$ prefers the gate over a constant in \FalseConst/24 runs and over Fourier in \FalseFourier/24. Mean MSEs are \AltGate{}, \AltConst{}, and \AltFourier{}. Structural identifiability does not imply recovery from a sensor mixture. Mixing plus common drive moves fitted concentration from about \CleanTenKappa{} to about \MixdriveZeroKappa{}. The ideal 6--10~Hz filter removes the imposed harmonic and is not a lead field. The retained plot is Supplementary Figure~S4.
 
-\begin{table}[htbp]\centering\caption{Numerical checks supporting the write-up. All rows are synthetic.}\label{tab:numbers}
-\begin{tabular}{@{}p{.42\linewidth}p{.50\linewidth}@{}}\toprule
-Check & Result\\\midrule
-Delayed bilinear vs flexible quadratic & MSE \DelayFull{} vs \DelayFlexible{}; contrast agrees to $1.7\times10^{-16}$\\
-Coupling recovery, 60 runs & Mean \ChiMean{} (SD \ChiSD{}); exact-feature coverage \ChiCoverageTrue{}; noisy-feature coverage \ChiCoverageEst{}\\
-Two-frequency delay, noise 0.2 rad & 18 ms recovered, SD 0.98 ms\\
-Chirp delay, same noise & SD 4.8 ms\\
-Clean vs mixing-plus-drive gate & $\widehat\kappa$ \CleanTenKappa{} at 10 dB; \MixdriveZeroKappa{} at 0 dB\\
-Kernel vs image at threshold 0.25 & Kernel amplitude 0; image posts only when the gate does\\
-Hitting time of a moving offset & First clearance at 0.562 s; no extra unreported latency\\\bottomrule
-\end{tabular}\end{table}
+\paragraph{Interpretation.} The retained sensor checks use the supplied original scripts, not a physiological lead field. Their filtered harmonic condition cannot establish robustness to retained harmonics. Mixing and common input are recovery failures to be modeled, not evidence for a universal phase mechanism.
 
 \section{Independent experiments and rejection criteria}\label{sec:experiment}
-Use four non-overlapping stages: localize $A$ and its edges; freeze decoders, maps, kernels, and thresholds; fit on a separate stage; test preregistered contrasts on untouched data. Do not relocalize from confirmatory outcomes. Randomize receptive, opposite, jittered, and sham arrival phase, and match content, power, and inputs. Phase is not a content manipulation. Table~\ref{tab:reject} states the rejection rules. Thresholds stay illustrative until a pilot freezes them. Avoid post hoc selection of unaware trials \citep{shanks2017}.
+Use four independent stages: localize edges and target readouts; freeze maps, processing assumptions, thresholds, and gain calibration; estimate on separate data; test on untouched data. Randomize calibrated arrival-phase conditions and sham controls while matching content and power. Check that intervention changes the intended phase and does not change the content code. Avoid outcome-selected ``unaware'' trials \citep{shanks2017}.
 
-\begin{table}[htbp]\centering\caption{Rejection rules. Each rule applies only after the manipulation check named in the first column.}\label{tab:reject}
-\begin{tabular}{@{}p{.28\linewidth}p{.64\linewidth}@{}}\toprule
-Check first & Counted as a rejection\\\midrule
-Arrival phase moved and content matched & Reject the routing account if no content-by-routing sensitivity effect at the pilot-frozen bound.\\
-Route structurally closed on an isolated path & Transfer still occurs on that path.\\
-Fixed translation map is exactly null & Timing alone restores the missing direction.\\
-Learning flag independently closed & Item-specific trace still changes.\\
-Inputs, kernels, and features held fixed & Nonzero cross-path contrast under a separable model.\\
-Source mixing uncontrolled & A phase estimate is interpreted as $\eta$.\\\bottomrule
-\end{tabular}\end{table}
+\begin{table}[htbp]\centering
+\caption{Tests of specified model components after successful independent calibration and manipulation checks.}\label{tab:reject}
+\begingroup\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.2}\hyphenpenalty=10000
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}p{.33\linewidth}Y@{}}\toprule
+Assumption checked & Contradicting outcome\\\midrule
+Isolated fixed map; zero readout projection & Timing alone yields nonzero transfer in that readout.\\\addlinespace[5pt]
+Known item: maximum amplitude $A_v<\theta$ & Posting occurs under the stated scalar gate and threshold.\\\addlinespace[5pt]
+Positive downstream noise; calibrated channel gain & A confirmatory interval excludes the pilot-frozen sensitivity effect predicted by Eq.~\eqref{eq:sensitivity}.\\\addlinespace[5pt]
+Fixed matched inputs; separable model & A reproducible nonzero factorial contrast rejects separability. It does not exclude every joint readout alternative.\\\addlinespace[5pt]
+Learning opportunity assigned zero & A reproducible item-specific map change contradicts Eq.~\eqref{eq:plastic}.\\\addlinespace[5pt]
+Two bands; shared transfer phase; known processing & Offset data contradict the shared-phase response after allowing for phase aliases and uncertainty.\\\addlinespace[5pt]
+Isolated reciprocal paths; independently resolved returns & A matched reverse-path manipulation changes the initial forward increment while all forward inputs and parameters remain fixed, contradicting Eq.~\eqref{eq:echo}.\\\addlinespace[5pt]
+Positive invariant channel; known timing and threshold & Held-out completion times contradict Eq.~\eqref{eq:recurrence-latency} beyond calibrated uncertainty.\\\bottomrule
+\end{tabularx}\endgroup\end{table}
+An uncontrolled mixture is an inconclusive identifying experiment, not a mathematical rejection of the ridge. A null interaction test needs precision against a meaningful effect bound. Content projection, gain, criterion, and alternative pathways must be measured or constrained independently.
+
+\subsection{Public datasets and a staged empirical route}\label{sec:publicdata}
+Public CCEP dataset ds004080 provides controlled single-pulse stimulation, event timing and atlas-labeled electrode positions \citep{vanblooijs2023,ccepdata}. We retrieved and screened all 74 electrode metadata tables from its NEMAR v1.0.0 mirror. Only one table has explicit contacts in both hemispheres; its single frontal-name label is on the left, with no frontal-name labels on the right. This identifies a candidate for anatomical and stimulation-coverage inspection, not validated bilateral prefrontal sampling. Evoked response onset and peak must also be separated from artifact and processing before being interpreted as conduction.
+
+Allen Visual Coding Neuropixels is a candidate for held-out population projection and lagged transfer, while Visual Behavior Neuropixels additionally supplies a task and behavioral events \citep{allencoding,allenbehavior}. These observational datasets do not by themselves supply the isolated two-source factorial intervention or a known phase-gain manipulation. F-TRACT's derived maps offer a possible independent delay reference, subject to model assumptions and access checks \citep{ftractatlas}. Supplement S16, its expanded dataset comparison, and the accompanying data review specify sources, versioning, actual metadata screening, and the remaining design gaps.
+
+Additional releases improve individual component matches. The hippocampal--retrosplenial dataset associated with \citet{gonzalez2026} provides simultaneous populations and task/replay epochs for conditional subspace analyses. The multiplexed-subspace study of \citet{macdowell2025} includes frontal and other populations and explicitly concerns functional correlation rather than causal direction. DANDI 000458 combines timed cortical stimulation with EEG and Neuropixels in awake and anesthetized mice \citep{claar2023}; IBL's brain-wide decision-task release adds broad anatomical coverage and choices \citep{ibl2025data}. None supplies a documented two-band receptive scan, isolated reciprocal content perturbations, and the learning intervention jointly. These are candidates for separate falsifiable tests, not combined empirical confirmation.
+
+The proposed empirical sequence is to test timing with controlled perturbations, estimate content maps and noise-whitened innovation on separate population recordings, and test behavior on independently held-out trials. These complementary datasets cannot be merged into one calibrated causal loop across species or cohorts. No inspected resource is asserted to validate all parts of the model, and no neural waveform was fitted in this revision.
+
+\input{experimental_design.tex}
+\input{nervous_empirical.tex}
 
 \section{Discussion}\label{sec:discussion}
-The paper is one argument in two steps. The first step says what a transferred cross-spectrum can identify. The second step uses that limit to say when a receiver direction is finished.
-
 \subsection{What the phase score can identify}
-In one stationary band, the phase of the transferred cross-spectrum is $-\eta$, with $\eta=\alpha+\Om\tau$. A longer delay cancelled by a shifted preference leaves that phase unchanged. This is a rank-one sensitivity row, $[1\ \ \Om]$. It is not a claim that every phase method is blind. A raw simultaneous contrast does not contain $\alpha$ or $\tau$ at all, so a phase-locking score on that contrast does not test the ridge.
+The explicit observation separates carrier phase $\gamma$ from receptive center $\alpha$. One band identifies at most their effective offsets, leaving an exact compensating delay direction. Phase-only data identify the carrier offset and do not establish receiver preference. Shared transfer phase across two frequencies plus a gain scan provides a constructive local escape. Harmonic rank depends on response constraints; common drive requires a valid complex-signal observation model.
 
-Two extensions matter more than the basic ridge. If the same preference is used at two or more frequencies, the design has rank two and the delay can be recovered. If the preference scales with harmonic number, as in a constant group delay, adding harmonics does not help. The observation is still a multiple of one offset. Common drive shifts the observed phase by a constant in the rotating frame and is absorbed into $\alpha$. It does not break the ridge. A prior can pick a point on the line. It cannot make the likelihood distinguish two points with the same $\eta$.
+\subsection{Support, delivery, and completion}
+Theorem~\ref{thm:inter} establishes modeled interregional communication when the item has nonzero readout projection: a sender-dependent receiver contribution exists, and a projected source contrast changes that contribution at matched phase. Structural support is readout nonorthogonality to the translation image. Item-specific delivery requires nonzero $v^\top Mz$. Neither guarantees threshold feasibility or finite completion. The positive gate attenuates at every phase, including $\pi$. Completion is a declared operational first-passage measure, and a transient conduction onset is not invariant merely because carrier phase is compensated. The retained two-stage account therefore separates support from effectiveness without claiming that projection alone explains report delays.
 
-\subsection{When processing is finished}
-Completion uses the same $\eta$. A receiver direction is finished only when the feature lies in the image of the translation and the gate clears the threshold. Posting is that predicate. Completion is the first time it holds. A direction outside the image never finishes, at any delay. A direction inside the image finishes at the conduction time only if the preference already matches. Otherwise it finishes at the later hitting time of a move in arrival phase. In the linear example $\delta(t)=1.4-1.6t$, that time is $0.562$~s. A stationary miss never becomes a hit inside the window.
+\subsection{The link between identification and delivery}
+The reciprocal extension supplies a common input--output object, rather than a rhetorical dependence between otherwise separate theorems. Its frequency-domain response and time-domain return series use the same directed map products. The stationary likelihood constrains effective gate and carrier offsets; the return-product theorem constrains which projected perturbations can circulate; resolved content onsets and echoes add a transverse timing measurement. Equation~\eqref{eq:recurrence-latency} then predicts an operational waiting term from an independently calibrated positive channel. It does not manufacture an unmeasured physiological delay. The zero-return example shows that two individually nonzero maps need not support the item's round trip.
+The shared gate offset connects the two levels. It creates a conditional amplitude equivalence, while independent onset observations can break a carrier equivalence. Testing delivery does not require recovering every internal parameter. Testing a physiological explanation for delivery does require calibrated constraints on delay, transfer phase, receptive center, and noise. The sensitivity result is derived from the explicit behavioral readout, not from geometry alone.
 
-The interaction and the learning rule stay in the paper because they answer the next two questions, not because they are separate programs. The interaction says where a coordinate absent from both images can appear: only in the cross term, and only after both gates are open. The learning rule says why access can change while a trace stays fixed: the learning flag is a separate input. Neither identifies a synapse. Neither is a claim about experience. The model has no experience variable.
+\input{comparison_positioning.tex}
 
 \subsection{Relation to existing accounts}
-Communication-through-coherence is compatible with a gate. A phase--report correlation does not test that gate, because the same correlation is also compatible with a fixed delay, a shared input, and coherence that followed the message \citep{fries2015,schneider2021}. Access accounts separate local content from report \citep{dehaene2006}. This model separates them by a report status. Recurrent processing remains a different claim \citep{lamme2006}. Apparent coupling can arise without an interaction \citep{aru2015}. Phase consistency is not a receptive window \citep{vinck2011}. The advance is the narrower statement: in the transferred cross-spectrum, delay and preference are not separate parameters, and harmonics or common drive do not automatically make them separate.
+Recent studies already link population geometry to interregional activity and contextual actions \citep{macdowell2025,gonzalez2026,binish2026}. Projection alone is therefore not the novelty claim; the prospective advance is a calibrated joint test separating offset recovery, item delivery, and return-dependent first passage. The gate is compatible with communication-through-coherence \citep{fries2015}; its presence is not established by a phase--report correlation. Translation support complements communication-subspace ideas \citep{semedo2019}. The exact parameter equivalence is distinct from the delay-dependent interference mechanism analyzed by \citet{dowdall2023}; both caution against assigning a unique physiological meaning to a phase summary. Report-status labels do not distinguish theories of experience \citep{dehaene2006,lamme2006}. The factorial experiment distinguishes a cross-path term from separable alternatives, but joint nonlinear readouts remain viable. The model's scientific value lies in these precise contrasts and failure cases rather than an unsupported claim of a breakthrough.
+
+\subsection{Beyond a two-population loop}
+Theorem~\ref{thm:network} makes the same projection and delay architecture usable for multistage signaling. Its distinctive test separates the fastest anatomical route from the fastest route supporting a specific decoded contrast. Parallel signed routes can suppress an observed response, and dispersed processing can reduce carrier magnitude despite intact content support. Proposition~\ref{prop:dispersion} also limits interpretation: even a complete temporal response cannot separate conduction from a causal processing kernel whose support can be shifted. A claimed missing nervous-system delay must therefore be measured or independently constrained. These statements strengthen the model's experimental consequences; the walk expansion and Fourier bound are classical methods, so mathematical or biological priority is not established here.
+
+\subsection{A unified experimental opportunity}
+The useful research opportunity is to distinguish four failure modes that can produce similar low-report outcomes: an unsupported item, weak receptive gain, missing cross-path contribution, and unlearned translation. They make different predictions. Phase tuning cannot restore an exactly null item projection. Better alignment can increase a supported item's amplitude without changing the content span. A bilinear contribution can add a receiver direction outside the additive span, measurable through complement factorial contrasts. Learning can reduce translation error only in the gain-weighted excited subspace under the stated update.
+
+A combined experiment should therefore freeze content maps and their uncertainty, recover timing offsets using the calibrated design, randomize projected content contrasts at matched inputs, estimate the complement rank with held-out basis pairs, and test transfer after training on restricted versus broader content sets. These are proposed empirical stages, not completed neural results. A decisive finding would be successful out-of-sample prediction of which receiver directions appear, their gain dependence, and their change after restricted training. A failure after valid calibration would identify which model component needs replacement.
+
+The potential advance is a measurable separation of support, timing, nonlinear integration, and learning in the same independently calibrated pathway. Claims of biological novelty or a breakthrough require experimental evidence and a focused comparison with existing theories. Renaming the model's definitions cannot supply that evidence.
 
 \subsection{Limits and the next step}
-The ridge is for one stationary band and a known kernel phase. Source mixing can move a fitted gate even when the structural ridge is intact. The ideal filter in that check is not a lead field. Thresholds are illustrative until a pilot freezes them. No human or animal data were analyzed. The scripts are in the review archive. A public DOI is not yet claimed, and should be deposited before journal production. The next useful step is an arrival-phase intervention with matched content, not a larger observational correlation. Figure~\ref{fig:escape} and Figure~\ref{fig:projection} are the checks that belong with these claims. The remaining estimator plots are in the supplement.
+All evidence here is synthetic. Correct-model recovery, valid coverage, and algebra checks establish implementation and internal consequences. They do not establish a neural mechanism, a learning rule, or a consciousness account. The next empirical step is independent calibration of a content map and readout followed by a matched-input gain manipulation, alongside latency or multi-frequency measurements if physiological parameter separation is sought.
 
 \subsection*{Transparency}\label{sec:transparency}
 \funding{This research received no external funding.}
 \conflicts{The author declares no conflict of interest.}
-\dataavailability{All numerical checks are synthetic. No neural, human, animal, or behavioral data were analyzed. Public archives inspected and not used, because they lack a calibrated translation map and an arrival-phase intervention, are OpenNeuro ds008014, OpenNeuro ds004621, and the speech--brain phase-locking project at OSF (doi:10.17605/OSF.IO/B9WDP). Per-realization outputs are in \texttt{results.json}. The supplement contains the marker, ordering, and serial-path checks, Supplementary Figures~S5--S7, and Supplementary Figure~S8.}
-\codeavailability{The review archive contains \texttt{simulate.py}, \texttt{verify.py}, \texttt{reproduce.py}, \texttt{requirements.txt}, numerical outputs, and the supplement. A public DOI is not yet claimed. The archive is the reproduction package for review.}
-\authorcontributions{Karem Abdelgalil: conceptualization, formal analysis, software, writing, and revision.}
+\dataavailability{All observations are synthetic. The accompanying package contains revised results, original supplied outputs retained for provenance, and a supplementary protocol with independently runnable checks. Public electrode and event metadata were screened for feasibility; no neural waveform or behavioral trial data were fitted to the model.}
+\codeavailability{Public project code: \url{https://github.com/lolzguycoder/esj-phase-connectivity}. Project archive DOI supplied by the author: \href{https://doi.org/10.5281/zenodo.23165931}{10.5281/zenodo.23165931}. The accompanying revision includes the complete manuscript source, supplement, \texttt{model.py}, \texttt{simulate.py}, \texttt{simulate\_reciprocal.py}, \texttt{verify\_nervous\_network.py}, \texttt{verify.py}, \texttt{reproduce.py}, pinned requirements, numerical outputs, and figures. Correspondence of the cited archive to this exact revised package has not been independently verified. Reproduction instructions are in the supplement and \texttt{README.md}.}
+\authorcontributions{Karem Abdelgalil: conceptualization, formal analysis, software, and writing.}
+
 
 \bibliography{references}
 \end{document}

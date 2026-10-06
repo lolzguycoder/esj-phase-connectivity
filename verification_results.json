@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "seed": 20261005,
+  "checks": [
+    "Full joint mean and Gaussian likelihood ridge",
+    "Numerical Fisher null, three-parameter design rank, corrected phase null and harmonic ambiguity",
+    "Independent weighted-information determinant",
+    "Factorization, impossible sender-null target and 200 randomized fidelity bounds",
+    "Exact feasibility/window, positive off-window gate, item-specific null and map uncertainty bounds",
+    "200 randomized projection communication contrasts, opposite-phase lower bound, same-sign memory extension and cancellation counterexample",
+    "Interaction complement rank and independently evaluated factorial contrast",
+    "Sensitivity derivative, pure-upstream and saturation counterexamples, transient onset distinction",
+    "Coverage recomputed from all endpoints, untouched lag selection, delay uncertainty and signal contamination",
+    "100 randomized interaction span-rank and dimension-bound checks",
+    "Gain-weighted expected learning recursion, excited-subspace contraction and unexcited-direction invariance",
+    "First-passage continuity counterexample and zero-concentration gate boundary",
+    "Worked restricted/broad teaching distributions, column-error curves, pathwise unexcited update and multi-band derivative cancellation",
+    "100 independent matrix method-of-steps / echo-series checks and stable resolvents",
+    "Independent threshold regime checks, equal-limit nonattainment, readout rotation and signed-return counterexamples",
+    "100 random two-edge carrier ridge checks with resolved onset outside the stationary law",
+    "General readout tail certificates, transient overshoot, full convolution loop and instantaneous-processing limit",
+    "Interaction-rank to Gaussian discriminability bridge and class-invariant product counterexample",
+    "Paired 300-series MSE confidence intervals, selection counts and adjusted-test bounds",
+    "Stable non-normal Lyapunov identity, independent sum, tail certificates and transient-growth crossing"
+  ],
+  "qualification": "Implementation and conditional mathematics only; empirical hypotheses not validated"
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "assumed normal independent replication units; no measured effect size or biological validation",
+  "familywise_alpha": 0.05,
+  "comparisons": 2,
+  "per_comparison_two_sided_alpha": 0.025,
+  "paired_planning": [
+    {
+      "effect_d": 0.3,
+      "n_80": 109,
+      "n_90": 141
+    },
+    {
+      "effect_d": 0.5,
+      "n_80": 41,
+      "n_90": 53
+    },
+    {
+      "effect_d": 0.8,
+      "n_80": 18,
+      "n_90": 23
+    }
+  ],
+  "equivalence_margin_sd": 0.3,
+  "equivalence_one_sided_alpha": 0.025,
+  "equivalence_n": {
+    "0.8": 119,
+    "0.9": 147
+  },
+  "quadrature_nodes": 600,
+  "weighted_example": {
+    "row_bound": 2,
+    "spectral_radius": 0.8944271909999159,
+    "weights": [
+      2.23606797749979,
+      1.0
+    ],
+    "contraction": 0.894427190999916
+  },
+  "random_weighted_checks": 100,
+  "nonuniform_dispersion_checks": 2000,
+  "exponential_small_frequency_ratio": 0.9999994721159842,
+  "seed": 6102027
+}

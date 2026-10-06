@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "seed": 6102026,
+  "scope": "synthetic verification only; no neural data fitted",
+  "network_realizations": 100,
+  "max_network_response_error": 8.881784197001252e-16,
+  "variance_checks": 2000,
+  "certificate_checks": 2000,
+  "supported_onset_ms": 12.0,
+  "fast_null_route_ms": 8,
+  "max_distinct_route_readout": 0.3,
+  "threshold_never_reached": 0.4,
+  "simultaneous_cancellation_max": 0.0,
+  "broadband_temporal_ambiguity_max_error": 1.6011864169946886e-15,
+  "forty_hz_magnitude_halfwidth_2ms": 0.9584184823246249,
+  "forty_hz_magnitude_halfwidth_10ms": 0.23387232094715982,
+  "uncompensated_13ms_amplitude": 0.12554221633821416,
+  "compensated_13ms_amplitude": 0.5
+}

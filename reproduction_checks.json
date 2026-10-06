@@ -1,13 +1,34 @@
 {
-  "cross_spectrum_phase": -1.3047786842338605,
-  "ridge_unique": true,
-  "simultaneous_contrast_independent_of_eta": 0.3,
-  "image_crosses_with_gate": true,
-  "kernel_always_zero": true,
-  "hitting_time_s": 0.5625,
-  "mixed_peak_s": 0.05,
-  "closed_gate_mixed_max": 0.0,
-  "exact_feature_coverage": 0.867,
-  "coverage_note": "52 of 60 exact-feature intervals covered; shortfall is finite-run, not a second parameter.",
-  "noisy_feature_coverage": 0.0
+  "status": "PASS",
+  "commands": [
+    "simulate.py",
+    "make_reader_figures.py",
+    "simulate_reciprocal.py",
+    "compare_mse.py",
+    "strengthen.py",
+    "verify_nervous_network.py",
+    "verify_revision_planning.py",
+    "verify.py",
+    "build_results.py"
+  ],
+  "results_sha256": "96d73d0e5a4967effa3d309e53c999b9f0fefa02ca67e3be7618c875dbbbe744",
+  "reciprocal_results_sha256": "ab5717c8b9451ca6bf3494a2acdfebb350b604dc7cdbb7bfe96afc5296687af3",
+  "mse_comparison_sha256": "80a1d405ef1204175cefc8e2c450f10fe627215705fbacac25167cc5f62d2327",
+  "nervous_network_sha256": "798e6633a8b7310c606570a18da334c49bb573a25d609fe325c2b1f0f7eeda90",
+  "revision_planning_sha256": "ac6a77c4d8622d9cde78fe701314996d2695840e40f536365c48585206a35459",
+  "strengthening_sha256": "e7d95910a8f812ea34abe84614f9ccb262160a7e52eba5874fb2ec72a8947a54",
+  "all_revised_figures": [
+    "figure_joint.pdf",
+    "figure_delivery.pdf",
+    "figure_coverage.pdf",
+    "figure_temporal.pdf",
+    "figure_escape_mixing.pdf",
+    "figure_roadmap.pdf",
+    "figure_learning_example.pdf",
+    "figure_reciprocal.pdf",
+    "figure_nonnormal.pdf",
+    "figure_innovation_geometry.pdf",
+    "figure_nervous_network.pdf"
+  ],
+  "scope": "all revised numerical results; no empirical validation"
 }

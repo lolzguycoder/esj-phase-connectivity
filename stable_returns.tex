@@ -1,0 +1,33 @@
+\paragraph{Non-normal loops: contraction versus stability.} The Euclidean bound in Proposition~\ref{prop:generalpassage} can be conservative, but $\|A\|_2<1$ itself excludes growth of $\|A^kp_0\|_2$. A readout can nevertheless rise as the vector rotates. Genuine transient vector amplification requires a broader condition. The relevant extension is Schur stability, $\rho(A)<1$, where $\rho$ denotes the largest eigenvalue modulus. An $\varepsilon$-pseudospectrum describes sensitivity to perturbations and depends on $\varepsilon$; it is not a substitute for the norm bound used above.
+
+\begin{proposition}[Stable non-normal return certification]\label{prop:stable-returns}
+Retain the sharp-delay loop, zero prehistory, and step input of Theorem~\ref{thm:reciprocal}, but replace its product-norm condition by $\rho(A)<1$. The echo formula, finite Krylov support test, and first-passage rule still hold. Define
+\[
+G_A=\sum_{k=0}^{\infty}(A^k)^\top A^k,
+\qquad q_G=\sqrt{1-1/\lambda_{\max}(G_A)}<1.
+\]
+This positive-definite matrix solves $G_A-A^\top G_AA=I$. With $\|p\|_G=\sqrt{p^\top G_Ap}$ and dual readout norm $\|v\|_{G^{-1}}=\sqrt{v^\top G_A^{-1}v}$, replace the Euclidean tail by
+\begin{equation}
+|z_\infty-z_m|\le
+\|v\|_{G^{-1}}\|p_0\|_G\frac{q_G^{m+1}}{1-q_G}.
+\label{eq:lyapunov-tail}
+\end{equation}
+All strict crossing/exclusion certificates in Proposition~\ref{prop:generalpassage} apply with this bound. Euclidean transient amplification is permitted.
+\end{proposition}
+\begin{proof}
+Method-of-steps induction establishes the finite-time echo formula without any stability condition. For a finite matrix with $\rho(A)<1$, its Jordan form implies $\|A^k\|\le Cr^k$ for some $C<\infty$ and $\rho(A)<r<1$: each Jordan-block power is bounded by a finite polynomial in $k$ times its eigenvalue powers, and the polynomial is absorbed by the strictly larger exponential rate $r$. Nilpotent blocks vanish after finitely many powers. The series defining $G_A$ therefore converges absolutely. Its $k=0$ term is $I$, so $G_A\succeq I$ and is positive definite. Removing that term and shifting the convergent series proves the displayed Lyapunov identity.
+
+For every vector $p$,
+\[
+\|Ap\|_G^2=\|p\|_G^2-\|p\|_2^2
+\le(1-1/\lambda_{\max}(G_A))\|p\|_G^2.
+\]
+Thus the induced $G_A$ norm contracts by $q_G<1$. Cauchy--Schwarz after inserting $G_A^{1/2}$ and $G_A^{-1/2}$ gives $|v^\top p|\le\|v\|_{G^{-1}}\|p\|_G$. Applying this to the geometric tail yields Eq.~\eqref{eq:lyapunov-tail}. If $q_G=0$, the inequality forces $A=0$ and the tail is zero. The same convergent geometric-series identity gives $z_\infty=v^\top(I-A)^{-1}p_0$. Substitution of the new tail in the earlier strict certificates proves the claims. The finite support test uses Cayley--Hamilton alone and is unchanged. No normality, positivity, or scalar-channel assumption is needed.
+\end{proof}
+
+This is a standard Lyapunov construction applied to the paper's projected completion statistic. It extends the usable model class rather than introducing new stability mathematics. For
+\[
+A=\begin{pmatrix}0.65&1.2\\0&0.65\end{pmatrix},\quad
+p_0=e_2,\quad v=e_1,
+\]
+$\rho(A)=0.65$ but $\|A\|_2>1$. The direct readout is zero; successive plateaus are $0$, $1.2$, $2.76$, $4.281$, and $5.5992$. Threshold $5$ is first reached on the fourth return, at 138 ms for the earlier 18/12 ms delays. The example's amplitudes are normalized illustrative output units. Supplementary Figure~S9 compares the actual tail with the certificate, and distinguishes Euclidean amplification from stability. Compute partial sums directly until a strict certificate is met; near equality, report unresolved status rather than treating a numerical tolerance as proof of crossing.

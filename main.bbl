@@ -1,0 +1,255 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Allen Institute for Brain
+  Science}(2026{\natexlab{a}})]{allenbehavior}
+{Allen Institute for Brain Science}.
+\newblock Visual behavior neuropixels: data access and analysis documentation,
+  2026{\natexlab{a}}.
+\newblock URL
+  \url{https://allensdk.readthedocs.io/en/latest/visual_behavior_neuropixels.html}.
+\newblock Documentation inspected 6 October 2026; pin the analysis manifest.
+
+\bibitem[{Allen Institute for Brain Science}(2026{\natexlab{b}})]{allencoding}
+{Allen Institute for Brain Science}.
+\newblock Visual coding: Neuropixels, 2026{\natexlab{b}}.
+\newblock URL
+  \url{https://allensdk.readthedocs.io/en/stable/visual_coding_neuropixels.html}.
+\newblock Documentation inspected 6 October 2026.
+
+\bibitem[Bastos et~al.(2015)Bastos, Vezoli, and Fries]{bastos2015}
+Andr{\'e}~M. Bastos, Julien Vezoli, and Pascal Fries.
+\newblock Communication through coherence with inter-areal delays.
+\newblock \emph{Current Opinion in Neurobiology}, 31:\penalty0 173--180, 2015.
+
+\bibitem[Benveniste et~al.(1990)Benveniste, M{\'e}tivier, and
+  Priouret]{benveniste1990}
+Albert Benveniste, Michel M{\'e}tivier, and Pierre Priouret.
+\newblock \emph{Adaptive Algorithms and Stochastic Approximations}.
+\newblock Springer, Berlin, Heidelberg, 1990.
+\newblock \doi{10.1007/978-3-642-75894-2}.
+
+\bibitem[Binish et~al.(2026)Binish, Terlau, Martini, Lin, Knight, and
+  Helfrich]{binish2026}
+Neha Binish, Jonas Terlau, Jan Martini, Jack~J. Lin, Robert~T. Knight, and
+  Randolph~F. Helfrich.
+\newblock A communication subspace relays context-dependent actions from human
+  prefrontal to motor cortex.
+\newblock \emph{Nature Neuroscience}, 29:\penalty0 1690--1698, 2026.
+\newblock \doi{10.1038/s41593-026-02290-4}.
+
+\bibitem[Caminiti et~al.(2013)Caminiti, Carducci, Piervincenzi,
+  Battaglia-Mayer, Confalone, Visco-Comandini, Pantano, and
+  Innocenti]{caminiti2013}
+Roberto Caminiti, Filippo Carducci, Claudia Piervincenzi, Alexandra
+  Battaglia-Mayer, Giuseppina Confalone, Federica Visco-Comandini, Patrizia
+  Pantano, and Giorgio~M. Innocenti.
+\newblock Diameter, length, speed, and conduction delay of callosal axons in
+  macaque monkeys and humans: comparing data from histology and magnetic
+  resonance imaging diffusion tractography.
+\newblock \emph{Journal of Neuroscience}, 33\penalty0 (36):\penalty0
+  14501--14511, 2013.
+\newblock \doi{10.1523/JNEUROSCI.0761-13.2013}.
+
+\bibitem[Claar et~al.(2023)Claar, Rembado, Kuyat, Russo, Marks, Olsen, and
+  Koch]{claar2023}
+Leslie~D. Claar, Irene Rembado, Jacqulyn~R. Kuyat, Simone Russo, Lydia~C.
+  Marks, Shawn~R. Olsen, and Christof Koch.
+\newblock Cortico-thalamo-cortical interactions modulate electrically evoked
+  eeg responses in mice.
+\newblock \emph{eLife}, 12:\penalty0 RP84630, 2023.
+\newblock \doi{10.7554/eLife.84630}.
+
+\bibitem[Dehaene et~al.(2006)Dehaene, Changeux, Naccache, Sackur, and
+  Sergent]{dehaene2006}
+Stanislas Dehaene, Jean-Pierre Changeux, Lionel Naccache, J{\'e}r{\^o}me
+  Sackur, and Claire Sergent.
+\newblock Conscious, preconscious, and subliminal processing: a testable
+  taxonomy.
+\newblock \emph{Trends in Cognitive Sciences}, 10:\penalty0 204--211, 2006.
+
+\bibitem[Dowdall and Vinck(2023)]{dowdall2023}
+Jarrod~Robert Dowdall and Martin Vinck.
+\newblock Coherence fails to reliably capture inter-areal interactions in
+  bidirectional neural systems with transmission delays.
+\newblock \emph{NeuroImage}, 271:\penalty0 119998, 2023.
+
+\bibitem[Dudai et~al.(2015)Dudai, Karni, and Born]{dudai2015}
+Yadin Dudai, Avi Karni, and Jan Born.
+\newblock The consolidation and transformation of memory.
+\newblock \emph{Neuron}, 88:\penalty0 20--32, 2015.
+
+\bibitem[Eisenberg and Hayashi(2014)]{eisenberg2014}
+Marisa~C. Eisenberg and Michael A.~L. Hayashi.
+\newblock Determining identifiable parameter combinations using subset
+  profiling.
+\newblock \emph{Mathematical Biosciences}, 256:\penalty0 116--126, 2014.
+\newblock \doi{10.1016/j.mbs.2014.08.008}.
+
+\bibitem[Ford et~al.(2015)Ford, Alexandrova, Cossell, Stange-Marten, Sinclair,
+  Kopp-Scheinpflug, Pecka, Attwell, and Grothe]{ford2015}
+Marc~C. Ford, Olga Alexandrova, Lee Cossell, Annette Stange-Marten, James
+  Sinclair, Conny Kopp-Scheinpflug, Michael Pecka, David Attwell, and Benedikt
+  Grothe.
+\newblock Tuning of ranvier node and internode properties in myelinated axons
+  to adjust action potential timing.
+\newblock \emph{Nature Communications}, 6:\penalty0 8073, 2015.
+\newblock \doi{10.1038/ncomms9073}.
+
+\bibitem[Fries(2015)]{fries2015}
+Pascal Fries.
+\newblock Rhythms for cognition: communication through coherence.
+\newblock \emph{Neuron}, 88:\penalty0 220--235, 2015.
+
+\bibitem[{Functional Brain Tractography Project}(2022)]{ftractzenodo2022}
+{Functional Brain Tractography Project}.
+\newblock F-tract atlas, 2022.
+\newblock URL \url{https://zenodo.org/records/7015415}.
+\newblock Derived connectivity and latency resources; description inspected 6
+  October 2026.
+
+\bibitem[{Functional Brain Tractography Project}(2026)]{ftractatlas}
+{Functional Brain Tractography Project}.
+\newblock F-tract atlas, 2026.
+\newblock URL \url{https://www.f-tract.eu/atlas/}.
+\newblock Public atlas description inspected 6 October 2026; derived delay
+  estimates are model-dependent.
+
+\bibitem[Gonzalez et~al.(2026)Gonzalez, V{\"o}r{\"o}slakos, Aykan,
+  et~al.]{gonzalez2026}
+Joaquin Gonzalez, Mih{\'a}ly V{\"o}r{\"o}slakos, Deren Aykan, et~al.
+\newblock Subspace communication in the hippocampal--retrosplenial axis.
+\newblock \emph{Nature}, 655:\penalty0 192--201, 2026.
+\newblock \doi{10.1038/s41586-026-10481-z}.
+
+\bibitem[{International Brain Laboratory}(2025)]{ibl2025data}
+{International Brain Laboratory}.
+\newblock 2025 -- brain wide map: public data release and documentation, 2025.
+\newblock URL
+  \url{https://docs.internationalbrainlab.org/notebooks_external/data_release_brainwidemap.html}.
+\newblock Accessed 6 October 2026; freeze release and quality-control versions
+  before analysis.
+
+\bibitem[Kapoor et~al.(2022)Kapoor, Dwarakanath, Safavi, Werner, Besserve,
+  Panagiotaropoulos, and Logothetis]{kapoor2022}
+Vishal Kapoor, Abhilash Dwarakanath, Shervin Safavi, Joachim Werner, Michel
+  Besserve, Theofanis~I. Panagiotaropoulos, and Nikos~K. Logothetis.
+\newblock Decoding internally generated transitions of conscious contents in
+  the prefrontal cortex without subjective reports.
+\newblock \emph{Nature Communications}, 13:\penalty0 1535, 2022.
+\newblock \doi{10.1038/s41467-022-28897-2}.
+
+\bibitem[Korenberg and Hunter(1996)]{korenberg1996}
+Michael~J. Korenberg and Ian~W. Hunter.
+\newblock The identification of nonlinear biological systems: Volterra kernel
+  approaches.
+\newblock \emph{Annals of Biomedical Engineering}, 24:\penalty0 250--268, 1996.
+\newblock \doi{10.1007/BF02667354}.
+
+\bibitem[Kushner and Yin(2003)]{kushner2003}
+Harold~J. Kushner and G.~George Yin.
+\newblock \emph{Stochastic Approximation and Recursive Algorithms and
+  Applications}.
+\newblock Springer, New York, 2 edition, 2003.
+\newblock \doi{10.1007/b97441}.
+
+\bibitem[Lamme(2006)]{lamme2006}
+Victor A.~F. Lamme.
+\newblock Towards a true neural stance on consciousness.
+\newblock \emph{Trends in Cognitive Sciences}, 10:\penalty0 494--501, 2006.
+
+\bibitem[MacDowell et~al.(2025)MacDowell, Libby, Jahn, Tafazoli, Ardalan, and
+  Buschman]{macdowell2025}
+Camden~J. MacDowell, Alexandra Libby, Caroline~I. Jahn, Sina Tafazoli, Adel
+  Ardalan, and Timothy~J. Buschman.
+\newblock Multiplexed subspaces route neural activity across brain-wide
+  networks.
+\newblock \emph{Nature Communications}, 16:\penalty0 3359, 2025.
+\newblock \doi{10.1038/s41467-025-58698-2}.
+
+\bibitem[Michaels and Pruszynski(2025)]{michaelsdata2025}
+Jonathan~A. Michaels and J.~Andrew Pruszynski.
+\newblock Data from: Sensory expectations shape neural population dynamics in
+  motor circuits, 2025.
+\newblock Release of 29 September 2025; repository description inspected 6
+  October 2026; no waveform fitting in this manuscript.
+
+\bibitem[Michaels et~al.(2025)Michaels, Kashefi, Zheng, Codol, Weiler, Kersten,
+  Lau, Gribble, Diedrichsen, and Pruszynski]{michaels2025}
+Jonathan~A. Michaels, Mehrdad Kashefi, Jack Zheng, Olivier Codol, Jeffrey
+  Weiler, Rhonda Kersten, Jonathan~C. Lau, Paul~L. Gribble, J{\"o}rn
+  Diedrichsen, and J.~Andrew Pruszynski.
+\newblock Sensory expectations shape neural population dynamics in motor
+  circuits.
+\newblock \emph{Nature}, 648:\penalty0 668--677, 2025.
+\newblock \doi{10.1038/s41586-025-09690-9}.
+
+\bibitem[Nolte et~al.(2008)Nolte, Ziehe, Nikulin, Schl{\"o}gl, Kr{\"a}mer,
+  Brismar, and M{\"u}ller]{nolte2008}
+Guido Nolte, Andreas Ziehe, Vadim~V. Nikulin, Alois Schl{\"o}gl, Nicole
+  Kr{\"a}mer, Tom Brismar, and Klaus-Robert M{\"u}ller.
+\newblock Robustly estimating the flow of information in the brain.
+\newblock \emph{Physical Review Letters}, 100:\penalty0 234101, 2008.
+
+\bibitem[{PhysioNet} and Rutkove(2009)]{emgexamples2009}
+{PhysioNet} and Seward Rutkove.
+\newblock Examples of electromyograms, 2009.
+\newblock URL \url{https://physionet.org/content/emgdb/1.0.0/}.
+\newblock Version 1.0.0; repository description inspected 6 October 2026.
+
+\bibitem[Schneider et~al.(2021)Schneider, Broggini, Dann, Tzanou, Uran,
+  Sheshadri, Scherberger, and Vinck]{schneider2021}
+Marius Schneider, Ana~Clara Broggini, Benjamin Dann, Athanasia Tzanou, Cem
+  Uran, Swathi Sheshadri, Hansj{\"o}rg Scherberger, and Martin Vinck.
+\newblock A mechanism for inter-areal coherence through communication based on
+  connectivity and oscillatory power.
+\newblock \emph{Neuron}, 109:\penalty0 4050--4067, 2021.
+
+\bibitem[Semedo et~al.(2019)Semedo, Zandvakili, Machens, Yu, and
+  Kohn]{semedo2019}
+Jo{\~a}o~D. Semedo, Amin Zandvakili, Christian~K. Machens, Byron~M. Yu, and
+  Adam Kohn.
+\newblock Cortical areas interact through a communication subspace.
+\newblock \emph{Neuron}, 102:\penalty0 249--259, 2019.
+
+\bibitem[Shanks(2017)]{shanks2017}
+David~R. Shanks.
+\newblock Regressive research: the pitfalls of post hoc data selection in the
+  study of unconscious mental processes.
+\newblock \emph{Psychonomic Bulletin and Review}, 24:\penalty0 752--775, 2017.
+
+\bibitem[{UMC Utrecht RESPect investigators}(2026)]{ccepdata}
+{UMC Utrecht RESPect investigators}.
+\newblock Ccep ecog dataset across age 4--51, 2026.
+\newblock URL \url{https://www.nemar.org/dataset/on004080}.
+\newblock OpenNeuro source v1.2.4; metadata screened from NEMAR v1.0.0 on 6
+  October 2026.
+
+\bibitem[van Blooijs et~al.(2023)van Blooijs, van~den Boom, van~der Aar,
+  et~al.]{vanblooijs2023}
+Dorien van Blooijs, Max~A. van~den Boom, Jaap~F. van~der Aar, et~al.
+\newblock Developmental trajectory of transmission speed in the human brain.
+\newblock \emph{Nature Neuroscience}, 26:\penalty0 537--541, 2023.
+\newblock \doi{10.1038/s41593-023-01272-0}.
+
+\bibitem[Vinck et~al.(2010)Vinck, van Wingerden, Womelsdorf, Fries, and
+  Pennartz]{vinck2010}
+Martin Vinck, Marijn van Wingerden, Thilo Womelsdorf, Pascal Fries, and Cyriel
+  M.~A. Pennartz.
+\newblock The pairwise phase consistency: a bias-free measure of rhythmic
+  neuronal synchronization.
+\newblock \emph{NeuroImage}, 51:\penalty0 112--122, 2010.
+
+\bibitem[Vinck et~al.(2011)Vinck, Oostenveld, van Wingerden, Battaglia, and
+  Pennartz]{vinck2011}
+Martin Vinck, Robert Oostenveld, Marijn van Wingerden, Francesco Battaglia, and
+  Cyriel M.~A. Pennartz.
+\newblock An improved index of phase-synchronization for electrophysiological
+  data in the presence of volume-conduction, noise and sample-size bias.
+\newblock \emph{NeuroImage}, 55:\penalty0 1548--1565, 2011.
+
+\end{thebibliography}

@@ -1,0 +1,23 @@
+\paragraph{Beyond an invariant channel.} Corollary~\ref{cor:recurrence} gives a closed scalar formula because all increments point in the same direction. General stable maps can rotate, cancel, or transiently amplify a readout. Their completion criterion is still explicit as a sequence of matrix partial sums, with a quantitative bound on the unresolved tail.
+
+\begin{proposition}[General projected first passage and finite certification]\label{prop:generalpassage}
+Under Theorem~\ref{thm:reciprocal}, put $p_0=L_{PQ}d$, let $v$ be a fixed readout, and set $q_A=\|A\|<1$. Define
+\[
+z_m=v^\top\sum_{k=0}^{m}A^kp_0,
+\qquad z_\infty=v^\top(I-A)^{-1}p_0,
+\qquad E_m=\frac{\|v\|\|p_0\|q_A^{m+1}}{1-q_A}.
+\]
+For a positive signed threshold $\theta$, the first attained event is $\tau_f+m_*T_{\rm loop}$, where $m_*=\min\{m\ge0:z_m\ge\theta\}$, or it never occurs if this set is empty. The tail satisfies $|z_\infty-z_m|\le E_m$. If $z_\infty>\theta$, completion is necessarily finite; any $m$ with $E_m<z_\infty-\theta$ is an upper bound on the crossing index. If all values through $M$ are below threshold and $z_\infty+E_M<\theta$, completion never occurs. Values $z_\infty\le\theta$ alone do not exclude an earlier transient crossing. For $n_P$ receiver coordinates, the readout is identically zero if and only if $v^\top A^kp_0=0$ for $k=0,\ldots,n_P-1$.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:echo} is constant on each interval between consecutive return times, including its attained left endpoint. Applying $v^\top$ gives $z_m$ on the $m$th interval, proving the minimum-index rule without an invariance or positivity assumption. Absolute convergence yields
+\[
+|z_\infty-z_m|\le\|v\|\sum_{k=m+1}^{\infty}\|A\|^k\|p_0\|
+=E_m.
+\]
+Since $E_m\to0$, if $z_\infty>\theta$ there is a finite $m$ with $z_m\ge z_\infty-E_m>\theta$. The first crossing is no later than this index. If $q_A=0$, the tail is zero and the first partial sum is already the limit. For every $m\ge M$, $E_m\le E_M$, so $z_m\le z_\infty+E_M<\theta$ certifies exclusion of all later crossings after the finite checked prefix. Equality in either bound does not provide the corresponding strict certification.
+
+An identically zero readout has zero successive differences, so every $v^\top A^kp_0$ vanishes. Conversely, the Cayley--Hamilton identity expresses $A^{n_P}$ as a linear combination of lower powers. Multiplication by further powers and induction express all higher powers using $I,A,\ldots,A^{n_P-1}$. If the first $n_P$ scalar coefficients vanish, all subsequent ones vanish, and so does every partial sum. This proves the finite support test. None of these arguments requires $p_0$ to be an eigenvector.
+\end{proof}
+
+For example, take $A=\left(\begin{smallmatrix}0&0.5\\-0.5&0\end{smallmatrix}\right)$ and $p_0=v=e_1$. The first readout is 1, while its limit is 0.8; threshold 0.9 is crossed at direct arrival despite lying above the limit. Threshold 0.8, equal to the limit, is also crossed at direct arrival. Thus the scalar invariant-channel exclusion at equality is not general. With $p_0=e_1$, $v=e_2$, and $A=\left(\begin{smallmatrix}0&0\\0.5&0\end{smallmatrix}\right)$, the direct readout is zero and the first return is 0.5. Rotation into a readout can therefore create a later contribution even without scalar accumulation. For absolute-amplitude completion, replace $z_m\ge\theta$ by $|z_m|\ge\theta$; the same tail bound applies with $|z_\infty|$, while the signed example and minimum must be evaluated with the chosen rule.
